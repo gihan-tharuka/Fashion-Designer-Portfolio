@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 export const metadata: Metadata = {
   title: "LUMENÉ Portfolio | Emerging Fashion Designer",
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <ScrollProgress />
         <Navbar />
         {children}
         <Footer />

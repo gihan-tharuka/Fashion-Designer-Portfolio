@@ -1,7 +1,8 @@
+import { AnimatedImageFrame } from "@/components/AnimatedImageFrame";
 import { ButtonLink } from "@/components/ButtonLink";
 import { CTASection } from "@/components/CTASection";
 import { HeroSection } from "@/components/HeroSection";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import { MotionBlock, MotionItem, MotionStagger } from "@/components/MotionBlock";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SkillTag } from "@/components/SkillTag";
 
@@ -51,7 +52,7 @@ export default function Home() {
 
       <section className="section-pad bg-cream/35">
         <div className="editorial-container grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
-          <div className="lg:pb-10">
+          <MotionBlock className="lg:pb-10">
             <SectionHeading
               eyebrow="Featured Collection"
               title="LUMENÉ Capsule Collection A/W 2027"
@@ -63,21 +64,26 @@ export default function Home() {
                 View Design Process
               </ButtonLink>
             </div>
-          </div>
+          </MotionBlock>
 
-          <div className="grid gap-4 sm:grid-cols-[0.9fr_1.1fr] sm:items-end">
-            <ImagePlaceholder
+          <MotionBlock
+            className="grid gap-4 sm:grid-cols-[0.9fr_1.1fr] sm:items-end"
+            variant="softScale"
+          >
+            <AnimatedImageFrame
               src="/images/final-look-1.jpg"
               alt="LUMENÉ final collection preview"
               label="Final Look 01"
               className="aspect-[3/4]"
+              parallax={30}
             />
             <div className="grid gap-4">
-              <ImagePlaceholder
+              <AnimatedImageFrame
                 src="/images/fabric-board.jpg"
                 alt="LUMENÉ fabric and colour board preview"
                 label="Fabric Board"
                 className="aspect-[4/3]"
+                parallax={18}
               />
               <div className="grid gap-3 rounded-md border border-brown/10 bg-background/70 p-5 sm:grid-cols-3">
                 {["Draping", "Batik", "Chiffon"].map((item) => (
@@ -91,49 +97,54 @@ export default function Home() {
                 ))}
               </div>
             </div>
-          </div>
+          </MotionBlock>
         </div>
       </section>
 
       <section className="section-pad">
         <div className="editorial-container">
-          <SectionHeading
-            eyebrow="Selected Works"
-            title="Garments, surfaces, and studies from the collection"
-            text="A concise preview of final looks and development work, curated to show concept, material sensitivity, silhouette, and portfolio-ready outcomes."
-          />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <MotionBlock>
+            <SectionHeading
+              eyebrow="Selected Works"
+              title="Garments, surfaces, and studies from the collection"
+              text="A concise preview of final looks and development work, curated to show concept, material sensitivity, silhouette, and portfolio-ready outcomes."
+            />
+          </MotionBlock>
+          <MotionStagger className="mt-12 grid gap-6 md:grid-cols-3">
             {selectedWorks.map((work) => (
-              <article
-                key={work.title}
-                className="group border-t border-brown/15 pt-5"
-              >
-                <ImagePlaceholder
-                  src={work.image}
-                  alt={`${work.title} portfolio preview`}
-                  label={work.category}
-                  className="aspect-[4/5]"
-                />
-                <p className="eyebrow mt-5">{work.category}</p>
-                <h3 className="serif mt-3 text-3xl font-semibold leading-tight text-brown">
-                  {work.title}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-muted">{work.text}</p>
-              </article>
+              <MotionItem key={work.title}>
+                <article className="group border-t border-brown/15 pt-5 transition duration-300 hover:-translate-y-1">
+                  <AnimatedImageFrame
+                    src={work.image}
+                    alt={`${work.title} portfolio preview`}
+                    label={work.category}
+                    className="aspect-[4/5]"
+                    parallax={18}
+                  />
+                  <p className="eyebrow mt-5">{work.category}</p>
+                  <h3 className="serif mt-3 text-3xl font-semibold leading-tight text-brown">
+                    {work.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-muted">{work.text}</p>
+                </article>
+              </MotionItem>
             ))}
-          </div>
+          </MotionStagger>
         </div>
       </section>
 
       <section className="section-pad bg-brown text-cream">
         <div className="editorial-container grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <ImagePlaceholder
-            src="/images/design-development.jpg"
-            alt="Studio design development preview"
-            label="Studio Practice"
-            className="aspect-[5/4] border-cream/15"
-          />
-          <div>
+          <MotionBlock variant="softScale">
+            <AnimatedImageFrame
+              src="/images/design-development.jpg"
+              alt="Studio design development preview"
+              label="Studio Practice"
+              className="aspect-[5/4] border-cream/15"
+              parallax={24}
+            />
+          </MotionBlock>
+          <MotionBlock>
             <p className="eyebrow text-rose">About Preview</p>
             <h2 className="serif mt-4 text-4xl font-semibold leading-tight text-cream sm:text-5xl">
               A textile-led womenswear practice shaped by memory, movement, and
@@ -150,28 +161,32 @@ export default function Home() {
                 Read About the Designer
               </ButtonLink>
             </div>
-          </div>
+          </MotionBlock>
         </div>
       </section>
 
       <section className="section-pad">
         <div className="editorial-container grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
-          <SectionHeading
-            eyebrow="Skills and Techniques"
-            title="Professional fashion portfolio capabilities"
-            text="The homepage foregrounds the skills most relevant to lecturers, interview panels, brands, collaborators, and creative directors."
-          />
-          <div className="flex flex-wrap content-start gap-3 lg:pt-12">
+          <MotionBlock>
+            <SectionHeading
+              eyebrow="Skills and Techniques"
+              title="Professional fashion portfolio capabilities"
+              text="The homepage foregrounds the skills most relevant to lecturers, interview panels, brands, collaborators, and creative directors."
+            />
+          </MotionBlock>
+          <MotionStagger className="flex flex-wrap content-start gap-3 lg:pt-12">
             {techniques.map((technique) => (
-              <SkillTag key={technique}>{technique}</SkillTag>
+              <MotionItem key={technique}>
+                <SkillTag>{technique}</SkillTag>
+              </MotionItem>
             ))}
-          </div>
+          </MotionStagger>
         </div>
       </section>
 
       <section className="section-pad bg-cream/35">
         <div className="editorial-container">
-          <div className="grid gap-8 md:grid-cols-[0.7fr_0.3fr] md:items-end">
+          <MotionBlock className="grid gap-8 md:grid-cols-[0.7fr_0.3fr] md:items-end">
             <SectionHeading
               eyebrow="Gallery Preview"
               title="Mood, material, development, and final look"
@@ -182,22 +197,23 @@ export default function Home() {
                 View Full Portfolio
               </ButtonLink>
             </div>
-          </div>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          </MotionBlock>
+          <MotionStagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {galleryPreview.map(([src, label], index) => (
-              <div
+              <MotionItem
                 key={label}
                 className={index === 1 ? "lg:mt-12" : index === 2 ? "lg:mt-6" : ""}
               >
-                <ImagePlaceholder
+                <AnimatedImageFrame
                   src={src}
                   alt={`${label} preview for LUMENÉ portfolio`}
                   label={label}
                   className="aspect-[3/4]"
+                  parallax={index % 2 === 0 ? 18 : 30}
                 />
-              </div>
+              </MotionItem>
             ))}
-          </div>
+          </MotionStagger>
         </div>
       </section>
 
