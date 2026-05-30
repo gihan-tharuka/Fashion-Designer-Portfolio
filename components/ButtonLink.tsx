@@ -3,7 +3,7 @@ import Link from "next/link";
 type ButtonLinkProps = {
   href: string;
   children: React.ReactNode;
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary" | "ghost" | "light";
 };
 
 export function ButtonLink({
@@ -17,6 +17,8 @@ export function ButtonLink({
     secondary:
       "bg-transparent text-brown border-brown/30 hover:border-brown hover:bg-cream/65",
     ghost: "bg-transparent text-teal border-teal/25 hover:border-teal hover:bg-teal/10",
+    light:
+      "bg-cream text-brown border-cream hover:bg-rose hover:border-rose hover:text-brown",
   };
 
   return (
