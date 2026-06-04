@@ -134,16 +134,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-pad">
+      <section className="section-pad bg-ivory/62">
         <div className="editorial-container">
-          <SectionHeading
-            eyebrow="Design Identity"
-            title="Soft power, tactile memory, and modern femininity."
-            text="The portfolio frames fashion as a language of transformation, where fabric surfaces hold memory and silhouette becomes emotional movement."
-          />
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((value) => (
-              <ValueCard key={value.title} {...value} />
+          <div className="motion-reveal grid gap-8 border-b border-gold/24 pb-10 lg:grid-cols-[0.34fr_0.66fr] lg:items-end">
+            <p className="eyebrow">Design Identity</p>
+            <div>
+              <h2 className="serif text-5xl font-semibold leading-[0.95] text-espresso sm:text-6xl lg:text-7xl">
+                Soft power, tactile memory, and modern femininity.
+              </h2>
+              <p className="mt-6 max-w-3xl text-base leading-8 text-muted">
+                The portfolio frames fashion as a language of transformation,
+                where fabric surfaces hold memory and silhouette becomes
+                emotional movement.
+              </p>
+            </div>
+          </div>
+          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {values.map((value, index) => (
+              <ValueCard key={value.title} {...value} index={index + 1} />
             ))}
           </div>
         </div>
