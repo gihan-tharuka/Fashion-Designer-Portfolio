@@ -11,29 +11,6 @@ export default function Home() {
     <main>
       <HeroSection />
 
-      <section className="section-pad bg-cream/32">
-        <div className="editorial-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div>
-            <SectionHeading
-              eyebrow="Featured Collection"
-              title="LUMENÉ Capsule Collection A/W 2027"
-              text="The central project presents contemporary womenswear inspired by emotional healing, butterfly metamorphosis, translucent fabric layers, and batik-inspired textile surfaces."
-            />
-            <div className="mt-8">
-              <ButtonLink href="/portfolio">Explore Collection</ButtonLink>
-            </div>
-          </div>
-          <ImagePlaceholder
-            src="/images/website/lineup.jpg"
-            alt="LUMENÉ final collection preview"
-            label="Final Collection Preview"
-            showLabel={false}
-            showSpotlight={false}
-            className="aspect-[5/4]"
-          />
-        </div>
-      </section>
-
       <section className="section-pad">
         <div className="editorial-container">
           <div className="mb-10 max-w-3xl">
@@ -81,6 +58,29 @@ export default function Home() {
               conscious craftsmanship, and quiet feminine power.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="section-pad bg-cream/32">
+        <div className="editorial-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <SectionHeading
+              eyebrow="Featured Collection"
+              title="LUMENÉ Capsule Collection S/W 2027"
+              text="The central project presents contemporary womenswear inspired by emotional healing, butterfly metamorphosis, translucent fabric layers, and batik-inspired textile surfaces."
+            />
+            <div className="mt-8">
+              <ButtonLink href="/portfolio">Explore Collection</ButtonLink>
+            </div>
+          </div>
+          <ImagePlaceholder
+            src="/images/website/lineup.jpg"
+            alt="LUMENÉ final collection preview"
+            label="Final Collection Preview"
+            showLabel={false}
+            showSpotlight={false}
+            className="aspect-[5/4]"
+          />
         </div>
       </section>
 

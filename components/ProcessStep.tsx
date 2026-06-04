@@ -22,7 +22,7 @@ export function ProcessStep({ title, text, image, index }: ProcessStepProps) {
         fit="contain"
         showLabel={false}
         showSpotlight={false}
-        className="aspect-[16/9] bg-cream/70"
+        className="aspect-[3509/2481] bg-cream/70"
       />
     </article>
   );
