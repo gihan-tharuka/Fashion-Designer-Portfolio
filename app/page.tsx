@@ -86,26 +86,51 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-pad bg-cream/32">
-        <div className="editorial-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div>
-            <SectionHeading
-              eyebrow="Featured Collection"
-              title="LUMENÉ Capsule Collection S/W 2027"
-              text="The central project presents contemporary womenswear inspired by emotional healing, butterfly metamorphosis, translucent fabric layers, and batik-inspired textile surfaces."
-            />
-            <div className="mt-8">
-              <ButtonLink href="/portfolio">Explore Collection</ButtonLink>
+      <section className="collection-reveal overflow-hidden bg-[radial-gradient(circle_at_18%_8%,rgba(179,137,75,0.2),transparent_28rem),linear-gradient(135deg,#1b120d,#2b1b12_48%,#130d09)] py-20 text-cream sm:py-24 lg:py-28">
+        <div className="editorial-container">
+          <div className="motion-reveal grid gap-10 lg:grid-cols-[0.72fr_0.28fr] lg:items-end">
+            <div>
+              <p className="eyebrow">Featured Collection</p>
+              <h2 className="serif mt-5 max-w-5xl text-5xl font-semibold leading-[0.92] text-cream sm:text-7xl lg:text-8xl">
+                LUMENÉ Capsule Collection S/W 2027
+              </h2>
+              <p className="mt-7 max-w-3xl text-base leading-8 text-cream/72">
+                Contemporary womenswear shaped by emotional healing, butterfly
+                metamorphosis, translucent fabric layers, draped silhouettes,
+                and batik-inspired textile surfaces.
+              </p>
+            </div>
+
+            <div className="grid gap-4 border-l border-gold/28 pl-6 text-xs font-bold uppercase tracking-[0.18em] text-cream/68 max-lg:border-l-0 max-lg:border-t max-lg:pl-0 max-lg:pt-6">
+              <span>6 Looks</span>
+              <span>Draped Silhouettes</span>
+              <span>Batik-Inspired Surfaces</span>
+              <span>Emotional Transformation</span>
             </div>
           </div>
-          <ImagePlaceholder
-            src="/images/website/lineup.jpg"
-            alt="LUMENÉ final collection preview"
-            label="Final Collection Preview"
-            showLabel={false}
-            showSpotlight={false}
-            className="aspect-[5/4]"
-          />
+
+          <div className="mt-12 grid gap-8 lg:grid-cols-[0.24fr_0.76fr] lg:items-end">
+            <div className="motion-reveal-delayed max-w-sm">
+              <p className="serif text-3xl font-semibold leading-tight text-gold">
+                An editorial entrance into a six-look metamorphosis.
+              </p>
+              <div className="mt-8">
+                <ButtonLink href="/portfolio">Explore the Looks</ButtonLink>
+              </div>
+            </div>
+
+            <div className="collection-image-frame relative lg:-mb-12">
+              <div className="absolute -left-5 -top-5 hidden h-28 w-28 border-l border-t border-gold/40 lg:block" />
+              <ImagePlaceholder
+                src="/images/website/lineup.jpg"
+                alt="LUMENÉ six look collection lineup"
+                label="6 Looks / S/W 2027"
+                showLabelEyebrow={false}
+                showSpotlight={false}
+                className="aspect-[3509/2481] border-gold/30 bg-charcoal shadow-[0_34px_100px_rgba(0,0,0,0.32)]"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

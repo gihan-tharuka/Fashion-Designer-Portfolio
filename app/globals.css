@@ -165,6 +165,25 @@ button {
   animation: quote-drift 1200ms cubic-bezier(0.22, 1, 0.36, 1) 220ms both;
 }
 
+.collection-reveal {
+  position: relative;
+}
+
+.collection-reveal::after {
+  background:
+    linear-gradient(90deg, transparent, rgba(179, 137, 75, 0.45), transparent);
+  bottom: 0;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.collection-image-frame {
+  animation: image-unveil 1200ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
+}
+
 @keyframes rise-fade {
   from {
     opacity: 0;
