@@ -12,12 +12,18 @@ export function SectionHeading({
   align = "left",
 }: SectionHeadingProps) {
   return (
-    <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
+    <div
+      className={`motion-reveal ${
+        align === "center" ? "mx-auto max-w-4xl text-center" : "max-w-4xl"
+      }`}
+    >
       {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-      <h2 className="serif mt-3 text-4xl font-semibold leading-tight text-brown sm:text-5xl">
+      <h2 className="serif mt-4 text-5xl font-semibold leading-[0.96] text-brown sm:text-6xl">
         {title}
       </h2>
-      {text ? <p className="mt-5 text-base leading-8 text-muted">{text}</p> : null}
+      {text ? (
+        <p className="mt-6 max-w-3xl text-base leading-8 text-muted">{text}</p>
+      ) : null}
     </div>
   );
 }

@@ -4,13 +4,13 @@ import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden">
-      <div className="editorial-container grid min-h-[calc(100svh-4.5rem)] gap-10 py-12 md:grid-cols-[0.92fr_1.08fr] md:items-center">
-        <div className="relative z-10">
+      <div className="editorial-container grid min-h-[calc(100svh-4.5rem)] gap-12 py-14 md:grid-cols-[0.9fr_1.1fr] md:items-center lg:py-20">
+        <div className="motion-reveal relative z-10">
           <p className="eyebrow">Capsule Collection S/W 2027</p>
-          <h1 className="serif mt-5 text-6xl font-semibold leading-[0.92] text-brown sm:text-7xl lg:text-8xl">
+          <h1 className="serif mt-5 text-7xl font-semibold leading-[0.82] text-espresso sm:text-8xl lg:text-9xl">
             LUMENÉ
           </h1>
-          <p className="mt-6 max-w-xl text-xl leading-8 text-foreground">
+          <p className="mt-7 max-w-xl text-2xl leading-9 text-foreground">
             Contemporary womenswear shaped by emotional transformation, draping,
             and textile surface.
           </p>
@@ -35,7 +35,7 @@ export function HeroSection() {
           fit="contain"
           showLabelEyebrow={false}
           showSpotlight={false}
-          className="aspect-[1055/1491] bg-cream/70"
+          className="motion-reveal-delayed aspect-[1055/1491] bg-cream/70"
         />
       </div>
     </section>

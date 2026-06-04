@@ -30,7 +30,7 @@ export function ImagePlaceholder({
 
   return (
     <div
-      className={`relative isolate overflow-hidden rounded-md border border-brown/10 bg-[linear-gradient(135deg,rgba(156,90,56,0.16),rgba(15,92,104,0.14),rgba(200,145,166,0.16))] ${className}`}
+      className={`motion-image relative isolate overflow-hidden rounded-md border border-gold/25 bg-[linear-gradient(135deg,rgba(255,250,240,0.72),rgba(179,137,75,0.16),rgba(27,18,13,0.1))] shadow-[0_22px_70px_rgba(58,36,24,0.14)] ${className}`}
     >
       {!failed ? (
         <Image
@@ -47,7 +47,7 @@ export function ImagePlaceholder({
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,250,240,0.6),transparent_17rem)]" />
       ) : null}
       {showLabel ? (
-        <div className="absolute inset-x-5 bottom-5 rounded-md border border-cream/50 bg-cream/78 px-4 py-3 backdrop-blur-md">
+        <div className="absolute inset-x-5 bottom-5 rounded-md border border-gold/30 bg-cream/82 px-4 py-3 shadow-[0_18px_42px_rgba(27,18,13,0.16)] backdrop-blur-md">
           {showLabelEyebrow ? (
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
               Placeholder Image

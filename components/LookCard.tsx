@@ -9,7 +9,7 @@ type LookCardProps = {
 
 export function LookCard({ look }: LookCardProps) {
   return (
-    <article className="soft-card group overflow-hidden rounded-md transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(74,36,18,0.13)]">
+    <article className="soft-card motion-reveal group overflow-hidden rounded-md transition duration-500 hover:-translate-y-1.5 hover:border-gold/35 hover:shadow-[0_34px_90px_rgba(58,36,24,0.18)]">
       {look.modelImage ? (
         <ImagePlaceholder
           src={look.modelImage}
@@ -29,9 +29,9 @@ export function LookCard({ look }: LookCardProps) {
           </div>
         </div>
       )}
-      <div className="p-6">
+      <div className="p-7">
         <p className="eyebrow">Look {look.number}</p>
-        <h3 className="serif mt-3 text-3xl font-semibold leading-tight text-brown">
+        <h3 className="serif mt-3 text-4xl font-semibold leading-[1.02] text-brown">
           {look.name}
         </h3>
         <p className="mt-4 text-sm leading-7 text-muted">{look.description}</p>

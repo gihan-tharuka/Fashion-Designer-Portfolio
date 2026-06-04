@@ -10,11 +10,11 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-brown/10 bg-background/82 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-gold/18 bg-ivory/82 shadow-[0_10px_40px_rgba(58,36,24,0.06)] backdrop-blur-xl">
       <nav className="editorial-container flex min-h-18 items-center justify-between py-3">
         <Link
           href="/"
-          className="focus-ring serif text-2xl font-semibold tracking-normal text-brown"
+          className="focus-ring serif text-3xl font-semibold tracking-normal text-espresso transition hover:text-gold"
           onClick={() => setIsOpen(false)}
         >
           LUMENÉ
@@ -22,7 +22,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-full border border-brown/20 text-brown md:hidden"
+          className="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold/30 text-brown md:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={isOpen}
           onClick={() => setIsOpen((value) => !value)}
@@ -48,10 +48,10 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`focus-ring rounded-full px-4 py-2 text-sm font-medium transition ${
+                className={`focus-ring rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] transition duration-500 ${
                   active
-                    ? "bg-brown text-cream"
-                    : "text-muted hover:bg-cream/70 hover:text-brown"
+                    ? "bg-espresso text-cream shadow-[0_12px_32px_rgba(27,18,13,0.16)]"
+                    : "text-muted hover:bg-cream/70 hover:text-espresso"
                 }`}
               >
                 {item.label}
@@ -62,7 +62,7 @@ export function Navbar() {
       </nav>
 
       {isOpen ? (
-        <div className="border-t border-brown/10 bg-background/95 md:hidden">
+        <div className="border-t border-gold/18 bg-ivory/96 md:hidden">
           <div className="editorial-container grid gap-2 py-4">
             {navItems.map((item) => (
               <Link
