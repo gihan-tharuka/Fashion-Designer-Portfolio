@@ -159,9 +159,11 @@ export default function Home() {
 
       <CTASection
         title="Available for collaborations, internships, styling projects, and creative opportunities."
-        text="For portfolio viewing, commissions, creative direction support, graduate showcase opportunities, or fashion industry enquiries, please get in touch."
-        buttonText="Get in Touch"
+        text="For portfolio viewing, commissions, creative direction support, graduate showcase opportunities, or fashion industry inquiries, please get in touch."
+        buttonText="Start a Conversation"
         href="/contact"
+        secondaryHref="/portfolio"
+        secondaryText="View Portfolio"
       />
     </main>
   );
