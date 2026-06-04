@@ -237,6 +237,27 @@ button {
   position: absolute;
 }
 
+.lookbook-scroll-card,
+.lookbook-image-surface {
+  background: #dcdbdb;
+}
+
+@supports (animation-timeline: view()) {
+  .lookbook-scroll-card {
+    animation: lookbook-color-settle both;
+    animation-range: entry 0% cover 34%;
+    animation-timeline: view();
+    background: #f8f0e3;
+  }
+
+  .lookbook-image-surface {
+    animation: lookbook-color-settle both;
+    animation-range: entry 0% cover 34%;
+    animation-timeline: view();
+    background: #f8f0e3;
+  }
+}
+
 @keyframes rise-fade {
   from {
     opacity: 0;
@@ -283,6 +304,16 @@ button {
   48%,
   100% {
     transform: translateX(28%) rotate(0.001deg);
+  }
+}
+
+@keyframes lookbook-color-settle {
+  from {
+    background-color: #f8f0e3;
+  }
+
+  to {
+    background-color: #dcdbdb;
   }
 }
 

@@ -5,6 +5,26 @@ import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { AnimatedHeading, ImageReveal, Reveal, Stagger, StaggerItem } from "@/components/Motion";
 import { ValueCard } from "@/components/ValueCard";
 import { values } from "@/lib/data";
+import { looks } from "@/lib/looks";
+import Link from "next/link";
+
+const lookbookLayouts = [
+  "lg:col-span-7",
+  "lg:col-span-5 lg:pt-20",
+  "lg:col-span-4",
+  "lg:col-span-8",
+  "lg:col-span-5 lg:pt-14",
+  "lg:col-span-7",
+];
+
+const lookbookImageFrames = [
+  "h-[min(74svh,44rem)]",
+  "h-[min(68svh,38rem)]",
+  "h-[min(66svh,36rem)]",
+  "h-[min(62svh,34rem)]",
+  "h-[min(68svh,38rem)]",
+  "h-[min(74svh,44rem)]",
+];
 
 export default function Home() {
   return (
@@ -138,6 +158,84 @@ export default function Home() {
                 className="aspect-[3509/2481] border-gold/30 bg-charcoal shadow-[0_34px_100px_rgba(0,0,0,0.32)]"
               />
             </ImageReveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad overflow-hidden">
+        <div className="editorial-container">
+          <Reveal className="grid gap-8 border-b border-gold/24 pb-10 lg:grid-cols-[0.32fr_0.68fr] lg:items-end">
+            <p className="eyebrow">Lookbook</p>
+            <div>
+              <AnimatedHeading>
+                <h2 className="serif text-5xl font-semibold leading-[0.94] text-espresso sm:text-6xl lg:text-7xl">
+                  Six final looks, each holding a stage of metamorphosis.
+                </h2>
+              </AnimatedHeading>
+              <p className="mt-6 max-w-3xl text-base leading-8 text-muted">
+                An editorial preview of the LUMENÉ collection, moving from
+                cocooned protection through fractured light, emergence, memory,
+                liberation, and afterlight.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-14 grid gap-7 lg:grid-cols-12 lg:gap-8">
+            {looks.map((look, index) => (
+              <div
+                key={look.slug}
+                className={lookbookLayouts[index] ?? "lg:col-span-6"}
+              >
+                <Link
+                  href={`/portfolio/${look.slug}`}
+                  className="focus-ring group block"
+                >
+                  <article className="lookbook-scroll-card relative overflow-hidden rounded-md border border-gold/20 shadow-[0_24px_80px_rgba(58,36,24,0.1)] transition duration-700 hover:-translate-y-1 hover:border-gold/55 hover:shadow-[0_34px_100px_rgba(58,36,24,0.16)]">
+                    <div className="overflow-hidden">
+                      <ImagePlaceholder
+                        src={look.modelImage ?? look.image ?? ""}
+                        alt={`Look ${look.number}: ${look.name}`}
+                        label={look.name}
+                        fit="contain"
+                        showLabel={false}
+                        showSpotlight={false}
+                        className={`${lookbookImageFrames[index] ?? "h-[min(72svh,42rem)]"} lookbook-image-surface max-h-[calc(100svh-5rem)] rounded-none border-0 transition duration-[1200ms] group-hover:scale-[1.025]`}
+                      />
+                    </div>
+
+                    <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(180deg,transparent,rgba(27,18,13,0.9))] p-5 pt-24 text-cream sm:p-7">
+                      <div className="flex items-end justify-between gap-5">
+                        <div>
+                          <p className="text-[0.64rem] font-bold uppercase tracking-[0.22em] text-gold">
+                            Look {look.number}
+                          </p>
+                          <h3 className="serif mt-2 text-3xl font-semibold leading-tight sm:text-4xl">
+                            {look.name}
+                          </h3>
+                        </div>
+                        <span className="hidden h-px flex-1 bg-gold/38 transition duration-700 group-hover:bg-gold sm:block" />
+                      </div>
+
+                      <div className="mt-4 translate-y-0 opacity-100 transition duration-700 lg:translate-y-4 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
+                        <p className="max-w-2xl text-sm leading-7 text-cream/76">
+                          {look.description}
+                        </p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {look.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-full border border-cream/18 bg-cream/10 px-3 py-1.5 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-cream/72 backdrop-blur-md"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
