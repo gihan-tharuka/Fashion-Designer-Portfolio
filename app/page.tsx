@@ -34,6 +34,46 @@ export default function Home() {
       </section>
 
       <section className="section-pad">
+        <div className="editorial-container grid gap-8 lg:grid-cols-[0.55fr_1.45fr]">
+          <ImagePlaceholder
+            src="/images/website/brand.jpg"
+            alt="LUMENÉ concept and creative practice visual"
+            label="Branding Statement"
+            showLabel={false}
+            className="min-h-[20rem] lg:min-h-[30rem]"
+          />
+          <div className="space-y-5 text-base leading-8 text-muted">
+            <p>
+              My creative practice explores fashion as a form of emotional
+              transformation. Through my collection LUMENÉ, I translate the
+              journey from darkness to light into contemporary womenswear that
+              is poetic, tactile, and deeply personal. My work is inspired by
+              the idea of metamorphosis, especially the transition from
+              confinement to growth and liberation. This is expressed through
+              draped silhouettes, soft sculptural forms, batik-inspired textile
+              surfaces, translucent layers, and flowing fabrics such as crepe,
+              silk chiffon, and tulle.
+            </p>
+            <p>
+              My design style combines modern femininity with emotional
+              storytelling. I am interested in the way fabric can hold feeling,
+              movement, memory, and identity. Rather than creating garments only
+              for decoration, I aim to design pieces that communicate inner
+              strength, vulnerability, and self-awareness. My work often uses
+              contrast: softness and structure, darkness and light, fragility
+              and power, stillness and movement. What makes my practice
+              distinct is the combination of concept, craft, and surface. I use
+              batik-inspired textures, butterfly symbolism, and layered fabric
+              manipulation to create garments that feel expressive and refined.
+              As an emerging designer, my goal is to build a contemporary
+              womenswear identity that celebrates emotional authenticity,
+              conscious craftsmanship, and quiet feminine power.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad">
         <div className="editorial-container">
           <SectionHeading
             eyebrow="Design Identity"

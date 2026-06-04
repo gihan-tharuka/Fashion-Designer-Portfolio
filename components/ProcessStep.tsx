@@ -19,6 +19,8 @@ export function ProcessStep({ title, text, image, index }: ProcessStepProps) {
         src={image}
         alt={`${title} process visual`}
         label={title}
+        showLabel={false}
+        showSpotlight={false}
         className="aspect-[16/9]"
       />
     </article>

@@ -5,7 +5,7 @@ const steps = [
   {
     title: "Research and Concept",
     text: "The process begins by studying emotional transformation, butterfly metamorphosis, chrysalis protection, and visual metaphors for moving from darkness into light.",
-    image: "/images/moodboard.jpg",
+    image: "/images/website/concept.jpg",
   },
   {
     title: "Mood Board Development",
@@ -15,22 +15,22 @@ const steps = [
   {
     title: "Customer Profile",
     text: "The target customer is defined through lifestyle, values, wardrobe needs, emotional connection, and expectations of contemporary womenswear.",
-    image: "/images/lumene-hero.jpg",
+    image: "/images/website/customerprofile.jpg",
   },
   {
     title: "Fabric Board and Colour Story",
     text: "Cotton crepe, silk, silk chiffon, tulle, batik-inspired patches, earthy neutrals, rose, rust, and teal are composed into a cohesive material language.",
-    image: "/images/fabric-board.jpg",
+    image: "/images/website/colorstory.jpg",
   },
   {
     title: "Textile Experiments",
     text: "Surface studies explore organic marks, colour blending, layered patches, and tactile fabric storytelling inspired by wings and emotional memory.",
-    image: "/images/textile-sample.jpg",
+    image: "/images/website/textiledevelopment.jpg",
   },
   {
     title: "Draping and Silhouette Development",
     text: "Garments evolve through asymmetry, draped jackets, puff sleeves, flowy trousers, translucent layering, and soft sculptural volume.",
-    image: "/images/design-development.jpg",
+    image: "/images/website/rangeplan.jpg",
   },
   {
     title: "Design Refinement",
@@ -40,7 +40,7 @@ const steps = [
   {
     title: "Final Outcome",
     text: "The final portfolio presentation communicates concept, customer, process, technical awareness, textile identity, and resolved contemporary womenswear outcomes.",
-    image: "/images/final-look-2.jpg",
+    image: "/images/website/lineup.jpg",
   },
 ];
 
