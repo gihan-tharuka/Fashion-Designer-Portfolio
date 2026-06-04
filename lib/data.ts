@@ -3,7 +3,7 @@ export const navItems = [
   { href: "/portfolio", label: "Portfolio" },
   { href: "/process", label: "Process" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export const projects = [

@@ -25,7 +25,7 @@ export default function PortfolioPage() {
         title="Interested in viewing the full portfolio?"
         text="Request the complete design portfolio for internships, commissions, collaborations, or graduate showcase review."
         buttonText="Contact for Portfolio Viewing"
-        href="/contact"
+        href="/#contact"
       />
     </main>
   );

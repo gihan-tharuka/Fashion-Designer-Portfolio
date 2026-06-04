@@ -89,7 +89,7 @@ export function HeroSection() {
           </motion.p>
           <motion.div variants={heroItem} className="mt-10 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="/portfolio">View Portfolio</ButtonLink>
-            <ButtonLink href="/contact" variant="secondary">
+            <ButtonLink href="/#contact" variant="secondary">
               Contact for Collaboration
             </ButtonLink>
           </motion.div>

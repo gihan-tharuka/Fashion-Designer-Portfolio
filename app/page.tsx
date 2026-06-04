@@ -1,5 +1,4 @@
 import { ButtonLink } from "@/components/ButtonLink";
-import { CTASection } from "@/components/CTASection";
 import { HeroSection } from "@/components/HeroSection";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { AnimatedHeading, ImageReveal, Reveal, Stagger, StaggerItem } from "@/components/Motion";
@@ -7,6 +6,29 @@ import { ValueCard } from "@/components/ValueCard";
 import { values } from "@/lib/data";
 import { looks } from "@/lib/looks";
 import Link from "next/link";
+
+const contactDetails = [
+  {
+    label: "Email",
+    value: "imalkatharuni24@gmail.com",
+    href: "mailto:imalkatharuni24@gmail.com",
+  },
+  {
+    label: "Phone",
+    value: "078 287 0261",
+    href: "tel:+94782870261",
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/imalka-tharuni-71b145234",
+    href: "https://www.linkedin.com/in/imalka-tharuni-71b145234/",
+  },
+  {
+    label: "Location",
+    value: "Colombo / available remotely",
+    href: null,
+  },
+];
 
 const lookbookLayouts = [
   "lg:col-span-7",
@@ -267,14 +289,75 @@ export default function Home() {
         </div>
       </section>
 
-      <CTASection
-        title="Available for collaborations, internships, styling projects, and creative opportunities."
-        text="For portfolio viewing, commissions, creative direction support, graduate showcase opportunities, or fashion industry inquiries, please get in touch."
-        buttonText="Start a Conversation"
-        href="/contact"
-        secondaryHref="/portfolio"
-        secondaryText="View Portfolio"
-      />
+      <section
+        id="contact"
+        className="section-pad luxury-section scroll-mt-28"
+      >
+        <div className="editorial-container">
+          <Reveal>
+            <div className="luxury-cta-panel rounded-md border border-gold/26 bg-cream/[0.055] p-6 shadow-[0_34px_110px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:p-10 lg:p-14">
+              <div className="relative z-10 grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+                <div>
+                  <div className="mb-8 h-px w-28 bg-gradient-to-r from-gold to-transparent" />
+                  <p className="eyebrow">Creative Opportunities</p>
+                  <h2 className="serif mt-5 max-w-4xl text-5xl font-semibold leading-[0.92] text-cream sm:text-6xl lg:text-7xl">
+                    Available for collaborations, internships, styling
+                    projects, and creative opportunities.
+                  </h2>
+                  <p className="mt-7 max-w-2xl text-base leading-8 text-cream/72">
+                    For portfolio viewing, commissions, creative direction
+                    support, graduate showcase opportunities, fashion industry
+                    enquiries, or styling collaborations, please get in touch.
+                  </p>
+
+                  <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                    <ButtonLink href="mailto:imalkatharuni24@gmail.com">
+                      Email Me
+                    </ButtonLink>
+                    <ButtonLink
+                      href="https://www.linkedin.com/in/imalka-tharuni-71b145234/"
+                      variant="light"
+                    >
+                      View LinkedIn
+                    </ButtonLink>
+                    <ButtonLink
+                      href="/docs/portfolio.pdf"
+                      variant="light"
+                      download="Imalka-Tharuni-Portfolio.pdf"
+                    >
+                      Download Portfolio PDF
+                    </ButtonLink>
+                  </div>
+                </div>
+
+                <Stagger className="grid gap-4">
+                  {contactDetails.map((detail) => (
+                    <StaggerItem key={detail.label}>
+                      <div className="group border border-gold/18 bg-cream/[0.06] p-5 transition duration-500 hover:-translate-y-1 hover:border-gold/48 hover:bg-cream/[0.09]">
+                        <p className="text-[0.64rem] font-bold uppercase tracking-[0.2em] text-gold">
+                          {detail.label}
+                        </p>
+                        {detail.href ? (
+                          <a
+                            href={detail.href}
+                            className="mt-3 block text-base font-semibold leading-7 text-cream/82 transition duration-500 group-hover:text-gold"
+                          >
+                            {detail.value}
+                          </a>
+                        ) : (
+                          <p className="mt-3 text-base font-semibold leading-7 text-cream/82">
+                            {detail.value}
+                          </p>
+                        )}
+                      </div>
+                    </StaggerItem>
+                  ))}
+                </Stagger>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </main>
   );
 }

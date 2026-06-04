@@ -96,7 +96,7 @@ export function Navbar() {
         </div>
 
         <Link
-          href="/contact"
+          href="/#contact"
           className="focus-ring hidden min-h-10 items-center justify-center rounded-full border border-gold/38 px-5 py-2 text-xs font-bold uppercase tracking-[0.14em] text-espresso transition duration-500 hover:-translate-y-0.5 hover:border-gold hover:bg-cream/68 md:inline-flex"
         >
           Collaborate
@@ -143,7 +143,7 @@ export function Navbar() {
                 </a>
               </div>
               <Link
-                href="/contact"
+                href="/#contact"
                 className="focus-ring inline-flex min-h-12 items-center justify-center rounded-full border border-espresso bg-espresso px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-cream transition duration-500 hover:bg-brown"
                 onClick={() => setIsOpen(false)}
               >
