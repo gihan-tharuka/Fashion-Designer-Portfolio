@@ -22,7 +22,7 @@ export default function LumeneProjectPage() {
           <div>
             <p className="eyebrow">Project Case Study</p>
             <h1 className="serif mt-4 text-5xl font-semibold leading-tight text-brown sm:text-7xl">
-              LUMENÉ Capsule Collection A/W 2027
+              LUMENÉ Capsule Collection S/S 2027
             </h1>
             <p className="mt-6 text-lg leading-8 text-muted">
               A contemporary womenswear collection inspired by emotional

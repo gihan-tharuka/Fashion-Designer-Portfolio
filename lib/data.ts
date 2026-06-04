@@ -8,7 +8,7 @@ export const navItems = [
 
 export const projects = [
   {
-    title: "LUMENÉ Capsule Collection A/W 2027",
+    title: "LUMENÉ Capsule Collection S/S 2027",
     category: "Contemporary Womenswear",
     focus: "Emotional transformation, draping, textile surface",
     description:

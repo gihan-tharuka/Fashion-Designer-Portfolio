@@ -9,6 +9,8 @@ type ImagePlaceholderProps = {
   label: string;
   className?: string;
   priority?: boolean;
+  showLabel?: boolean;
+  showSpotlight?: boolean;
 };
 
 export function ImagePlaceholder({
@@ -17,6 +19,8 @@ export function ImagePlaceholder({
   label,
   className = "",
   priority = false,
+  showLabel = true,
+  showSpotlight = true,
 }: ImagePlaceholderProps) {
   const [failed, setFailed] = useState(false);
 
@@ -35,13 +39,17 @@ export function ImagePlaceholder({
           onError={() => setFailed(true)}
         />
       ) : null}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,250,240,0.6),transparent_17rem)]" />
-      <div className="absolute inset-x-5 bottom-5 rounded-md border border-cream/50 bg-cream/78 px-4 py-3 backdrop-blur-md">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-          Placeholder Image
-        </p>
-        <p className="serif mt-1 text-2xl font-semibold text-brown">{label}</p>
-      </div>
+      {showSpotlight ? (
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,250,240,0.6),transparent_17rem)]" />
+      ) : null}
+      {showLabel ? (
+        <div className="absolute inset-x-5 bottom-5 rounded-md border border-cream/50 bg-cream/78 px-4 py-3 backdrop-blur-md">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+            Placeholder Image
+          </p>
+          <p className="serif mt-1 text-2xl font-semibold text-brown">{label}</p>
+        </div>
+      ) : null}
     </div>
   );
 }

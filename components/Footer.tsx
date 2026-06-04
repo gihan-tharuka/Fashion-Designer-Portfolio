@@ -33,13 +33,19 @@ export function Footer() {
             Contact
           </p>
           <div className="mt-4 grid gap-2 text-sm text-cream/75">
-            <a href="mailto:your-email@example.com" className="hover:text-cream">
-              your-email@example.com
+            <a href="mailto:imalkatharuni24@gmail.com" className="hover:text-cream">
+              imalkatharuni24@gmail.com
             </a>
-            <a href="https://instagram.com/yourhandle" className="hover:text-cream">
-              @yourhandle
+            <a href="tel:+94782870261" className="hover:text-cream">
+              078 287 0261
             </a>
-            <span>London / Colombo / Remote</span>
+            <a
+              href="https://www.linkedin.com/in/imalka-tharuni-71b145234/"
+              className="hover:text-cream"
+            >
+              LinkedIn
+            </a>
+            <span>  / Colombo / Remote</span>
           </div>
         </div>
       </div>

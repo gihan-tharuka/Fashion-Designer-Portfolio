@@ -4,22 +4,22 @@ import { SectionHeading } from "@/components/SectionHeading";
 const contacts = [
   {
     label: "Email",
-    value: "your-email@example.com",
-    href: "mailto:your-email@example.com",
+    value: "imalkatharuni24@gmail.com",
+    href: "mailto:imalkatharuni24@gmail.com",
   },
   {
-    label: "Instagram",
-    value: "@yourhandle",
-    href: "https://instagram.com/yourhandle",
+    label: "Contact",
+    value: "078 287 0261",
+    href: "tel:+94782870261",
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/yourprofile",
-    href: "https://linkedin.com/in/yourprofile",
+    value: "linkedin.com/in/imalka-tharuni-71b145234",
+    href: "https://www.linkedin.com/in/imalka-tharuni-71b145234/",
   },
   {
     label: "Location",
-    value: "London / Colombo / available remotely",
+    value: "  / Colombo / available remotely",
     href: null,
   },
 ];
@@ -36,9 +36,12 @@ export default function ContactPage() {
               text="For portfolio viewing, internship opportunities, commissions, styling collaborations, photoshoots, exhibitions, or creative enquiries, please get in touch."
             />
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <ButtonLink href="mailto:your-email@example.com">Email Me</ButtonLink>
-              <ButtonLink href="https://instagram.com/yourhandle" variant="secondary">
-                View Instagram
+              <ButtonLink href="mailto:imalkatharuni24@gmail.com">Email Me</ButtonLink>
+              <ButtonLink
+                href="https://www.linkedin.com/in/imalka-tharuni-71b145234/"
+                variant="secondary"
+              >
+                View LinkedIn
               </ButtonLink>
               <ButtonLink href="/portfolio.pdf" variant="ghost">
                 Download Portfolio PDF

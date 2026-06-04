@@ -2,10 +2,9 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { CTASection } from "@/components/CTASection";
 import { HeroSection } from "@/components/HeroSection";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
-import { ProcessStep } from "@/components/ProcessStep";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ValueCard } from "@/components/ValueCard";
-import { processSteps, values } from "@/lib/data";
+import { values } from "@/lib/data";
 
 export default function Home() {
   return (
@@ -17,7 +16,7 @@ export default function Home() {
           <div>
             <SectionHeading
               eyebrow="Featured Collection"
-              title="LUMENÉ Capsule Collection A/W 2027"
+              title="LUMENÉ Capsule Collection S/S 2027"
               text="The central project presents contemporary womenswear inspired by emotional healing, butterfly metamorphosis, translucent fabric layers, and batik-inspired textile surfaces."
             />
             <div className="mt-8">
@@ -25,9 +24,10 @@ export default function Home() {
             </div>
           </div>
           <ImagePlaceholder
-            src="/images/final-look-1.jpg"
+            src="/images/website/lineup.jpg"
             alt="LUMENÉ final collection preview"
             label="Final Collection Preview"
+            showLabel={false}
             className="aspect-[5/4]"
           />
         </div>
@@ -43,21 +43,6 @@ export default function Home() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((value) => (
               <ValueCard key={value.title} {...value} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-pad bg-cream/35">
-        <div className="editorial-container">
-          <SectionHeading
-            eyebrow="Process Preview"
-            title="From research to final outcomes"
-            text="A professional design process connects concept, customer, material experimentation, silhouette refinement, and resolved portfolio presentation."
-          />
-          <div className="mt-8">
-            {processSteps.map((step, index) => (
-              <ProcessStep key={step.title} {...step} index={index + 1} />
             ))}
           </div>
         </div>
