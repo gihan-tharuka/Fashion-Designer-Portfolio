@@ -10,6 +10,7 @@ type ImagePlaceholderProps = {
   className?: string;
   priority?: boolean;
   showLabel?: boolean;
+  showLabelEyebrow?: boolean;
   showSpotlight?: boolean;
 };
 
@@ -20,6 +21,7 @@ export function ImagePlaceholder({
   className = "",
   priority = false,
   showLabel = true,
+  showLabelEyebrow = true,
   showSpotlight = true,
 }: ImagePlaceholderProps) {
   const [failed, setFailed] = useState(false);
@@ -44,10 +46,18 @@ export function ImagePlaceholder({
       ) : null}
       {showLabel ? (
         <div className="absolute inset-x-5 bottom-5 rounded-md border border-cream/50 bg-cream/78 px-4 py-3 backdrop-blur-md">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            Placeholder Image
+          {showLabelEyebrow ? (
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+              Placeholder Image
+            </p>
+          ) : null}
+          <p
+            className={`serif text-2xl font-semibold text-brown ${
+              showLabelEyebrow ? "mt-1" : ""
+            }`}
+          >
+            {label}
           </p>
-          <p className="serif mt-1 text-2xl font-semibold text-brown">{label}</p>
         </div>
       ) : null}
     </div>

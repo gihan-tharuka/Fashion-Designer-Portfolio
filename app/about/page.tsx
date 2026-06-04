@@ -6,9 +6,7 @@ import { skills } from "@/lib/data";
 const interests = [
   "Contemporary womenswear",
   "Assistant designer roles",
-  "Freelance design",
-  "Textile development",
-  "Styling collaborations",
+  "Freelance design" ,
 ];
 
 export default function AboutPage() {
@@ -21,6 +19,7 @@ export default function AboutPage() {
             alt="Portrait of fashion designer Imalka Tharuni"
             label="Imalka Tharuni"
             priority
+            showLabelEyebrow={false}
             showSpotlight={false}
             className="min-h-[26rem] lg:min-h-[38rem]"
           />

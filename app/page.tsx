@@ -16,11 +16,11 @@ export default function Home() {
           <div>
             <SectionHeading
               eyebrow="Featured Collection"
-              title="LUMENÉ Capsule Collection S/S 2027"
+              title="LUMENÉ Capsule Collection A/W 2027"
               text="The central project presents contemporary womenswear inspired by emotional healing, butterfly metamorphosis, translucent fabric layers, and batik-inspired textile surfaces."
             />
             <div className="mt-8">
-              <ButtonLink href="/portfolio/lumene">Explore Collection</ButtonLink>
+              <ButtonLink href="/portfolio">Explore Collection</ButtonLink>
             </div>
           </div>
           <ImagePlaceholder

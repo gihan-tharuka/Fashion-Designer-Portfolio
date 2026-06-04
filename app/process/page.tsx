@@ -10,7 +10,7 @@ const steps = [
   {
     title: "Mood Board Development",
     text: "Images, textures, colour references, fabric movement, and symbolic forms are edited into a focused mood direction for LUMENÉ.",
-    image: "/images/moodboard.jpg",
+    image: "/images/website/moodboard.jpg",
   },
   {
     title: "Customer Profile",

@@ -6,7 +6,7 @@ export function HeroSection() {
     <section className="relative overflow-hidden">
       <div className="editorial-container grid min-h-[calc(100svh-4.5rem)] gap-10 py-12 md:grid-cols-[0.92fr_1.08fr] md:items-center">
         <div className="relative z-10">
-          <p className="eyebrow">Capsule Collection S/S 2027</p>
+          <p className="eyebrow">Capsule Collection A/W 2027</p>
           <h1 className="serif mt-5 text-6xl font-semibold leading-[0.92] text-brown sm:text-7xl lg:text-8xl">
             LUMENÉ
           </h1>
@@ -28,10 +28,11 @@ export function HeroSection() {
         </div>
 
         <ImagePlaceholder
-          src="/images/lumene-hero.jpg"
+          src="/images/website/homehero.jpg"
           alt="Editorial visual for LUMENÉ fashion collection"
-          label="LUMENÉ S/S 2027"
+          label="LUMENÉ A/W 2027"
           priority
+          showLabelEyebrow={false}
           className="min-h-[28rem] md:min-h-[42rem]"
         />
       </div>

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "LUMENÉ Portfolio | Emerging Fashion Designer",
   description:
     "Digital fashion portfolio showcasing contemporary womenswear, draping, batik-inspired textile surfaces, emotional storytelling, and conscious craftsmanship.",
+  icons: {
+    icon: "/favicon/favicon.png",
+  },
 };
 
 export default function RootLayout({

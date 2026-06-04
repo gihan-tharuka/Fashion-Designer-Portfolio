@@ -1,7 +1,7 @@
 import { CTASection } from "@/components/CTASection";
-import { ProjectCard } from "@/components/ProjectCard";
+import { LookCard } from "@/components/LookCard";
 import { SectionHeading } from "@/components/SectionHeading";
-import { projects } from "@/lib/data";
+import { looks } from "@/lib/looks";
 
 export default function PortfolioPage() {
   return (
@@ -10,12 +10,12 @@ export default function PortfolioPage() {
         <div className="editorial-container">
           <SectionHeading
             eyebrow="Portfolio"
-            title="Curated fashion projects"
-            text="Selected work showing concept research, textile surface development, draping, silhouette exploration, and final collection outcomes for contemporary womenswear."
+            title="LUMENÉ Collection — 6 Looks"
+            text="LUMENÉ Capsule Collection A/W 2027 is a contemporary womenswear collection exploring emotional transformation through draping, batik-inspired textile surfaces, soft sculptural forms, and poetic femininity. Each look represents a stage of metamorphosis, moving from confinement and inner darkness towards growth, softness, confidence, and liberation."
           />
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {projects.map((project) => (
-              <ProjectCard key={project.title} {...project} />
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {looks.map((look) => (
+              <LookCard key={look.slug} look={look} />
             ))}
           </div>
         </div>
