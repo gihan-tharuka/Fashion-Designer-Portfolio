@@ -45,7 +45,7 @@ export function Footer() {
             >
               LinkedIn
             </a>
-            <span>  / Colombo / Remote</span>
+            <span>   Colombo/ Remote</span>
           </div>
         </div>
       </div>

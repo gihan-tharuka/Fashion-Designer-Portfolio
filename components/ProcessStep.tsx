@@ -19,9 +19,10 @@ export function ProcessStep({ title, text, image, index }: ProcessStepProps) {
         src={image}
         alt={`${title} process visual`}
         label={title}
+        fit="contain"
         showLabel={false}
         showSpotlight={false}
-        className="aspect-[16/9]"
+        className="aspect-[16/9] bg-cream/70"
       />
     </article>
   );

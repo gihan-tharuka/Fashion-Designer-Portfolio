@@ -30,12 +30,12 @@ const steps = [
   {
     title: "Draping and Silhouette Development",
     text: "Garments evolve through asymmetry, draped jackets, puff sleeves, flowy trousers, translucent layering, and soft sculptural volume.",
-    image: "/images/website/rangeplan.jpg",
+    image: "/images/website/look1.jpg",
   },
   {
     title: "Design Refinement",
     text: "Range planning clarifies outfit balance, fabric placement, detail hierarchy, styling, and how each look contributes to the collection narrative.",
-    image: "/images/final-look-1.jpg",
+    image: "/images/website/rangeplan.jpg",
   },
   {
     title: "Final Outcome",

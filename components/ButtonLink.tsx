@@ -4,12 +4,14 @@ type ButtonLinkProps = {
   href: string;
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "ghost";
+  download?: boolean | string;
 };
 
 export function ButtonLink({
   href,
   children,
   variant = "primary",
+  download,
 }: ButtonLinkProps) {
   const styles = {
     primary:
@@ -22,6 +24,7 @@ export function ButtonLink({
   return (
     <Link
       href={href}
+      download={download}
       className={`focus-ring inline-flex min-h-11 items-center justify-center rounded-full border px-5 py-2.5 text-sm font-semibold transition ${styles[variant]}`}
     >
       {children}

@@ -9,6 +9,7 @@ type ImagePlaceholderProps = {
   label: string;
   className?: string;
   priority?: boolean;
+  fit?: "cover" | "contain";
   showLabel?: boolean;
   showLabelEyebrow?: boolean;
   showSpotlight?: boolean;
@@ -20,6 +21,7 @@ export function ImagePlaceholder({
   label,
   className = "",
   priority = false,
+  fit = "cover",
   showLabel = true,
   showLabelEyebrow = true,
   showSpotlight = true,
@@ -37,7 +39,7 @@ export function ImagePlaceholder({
           fill
           priority={priority}
           sizes="(min-width: 1024px) 50vw, 100vw"
-          className="object-cover"
+          className={fit === "contain" ? "object-contain" : "object-cover"}
           onError={() => setFailed(true)}
         />
       ) : null}

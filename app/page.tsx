@@ -28,19 +28,30 @@ export default function Home() {
             alt="LUMENÉ final collection preview"
             label="Final Collection Preview"
             showLabel={false}
+            showSpotlight={false}
             className="aspect-[5/4]"
           />
         </div>
       </section>
 
       <section className="section-pad">
+        <div className="editorial-container">
+          <div className="mb-10 max-w-3xl">
+            <p className="eyebrow">Brand Statement</p>
+            <h2 className="serif mt-3 text-4xl font-semibold leading-tight text-brown sm:text-5xl">
+              A personal language of transformation
+            </h2>
+          </div>
+        </div>
         <div className="editorial-container grid gap-8 lg:grid-cols-[0.55fr_1.45fr]">
           <ImagePlaceholder
-            src="/images/website/brand.jpg"
+            src="/images/website/brand.jpeg"
             alt="LUMENÉ concept and creative practice visual"
             label="Branding Statement"
+            fit="contain"
             showLabel={false}
-            className="min-h-[20rem] lg:min-h-[30rem]"
+            showSpotlight={false}
+            className="min-h-[20rem] bg-cream/70 lg:min-h-[30rem]"
           />
           <div className="space-y-5 text-base leading-8 text-muted">
             <p>

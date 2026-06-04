@@ -19,7 +19,7 @@ const contacts = [
   },
   {
     label: "Location",
-    value: "  / Colombo / available remotely",
+    value: "   Colombo/ available remotely",
     href: null,
   },
 ];
@@ -43,7 +43,11 @@ export default function ContactPage() {
               >
                 View LinkedIn
               </ButtonLink>
-              <ButtonLink href="/portfolio.pdf" variant="ghost">
+              <ButtonLink
+                href="/docs/portfolio.pdf"
+                variant="ghost"
+                download="Imalka-Tharuni-Portfolio.pdf"
+              >
                 Download Portfolio PDF
               </ButtonLink>
             </div>

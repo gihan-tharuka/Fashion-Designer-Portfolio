@@ -33,6 +33,7 @@ export function HeroSection() {
           label="LUMENÉ A/W 2027"
           priority
           showLabelEyebrow={false}
+          showSpotlight={false}
           className="min-h-[28rem] md:min-h-[42rem]"
         />
       </div>
