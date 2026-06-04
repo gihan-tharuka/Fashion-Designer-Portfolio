@@ -41,6 +41,68 @@ const aboutSkills = [
   "Portfolio Development",
 ];
 
+const creativeProcessSteps = [
+  {
+    number: "01",
+    title: "Research and Concept",
+    text: "Explored emotional transformation, butterfly metamorphosis, chrysalis protection, and visual metaphors from darkness into light.",
+  },
+  {
+    number: "02",
+    title: "Mood Board Development",
+    text: "Built a visual direction through symbolic forms, soft textures, layered references, and emotional colour moods.",
+  },
+  {
+    number: "03",
+    title: "Customer Profile",
+    text: "Defined a contemporary womenswear customer interested in expressive fashion, individuality, and poetic design.",
+  },
+  {
+    number: "04",
+    title: "Fabric Board and Colour Story",
+    text: "Developed warm browns, burnt orange, muted neutrals, soft blush, and dark-to-light tonal movement.",
+  },
+  {
+    number: "05",
+    title: "Textile Experiments",
+    text: "Explored batik-inspired marks, surface textures, layered dye effects, and handcrafted textile expression.",
+  },
+  {
+    number: "06",
+    title: "Draping and Silhouette Development",
+    text: "Tested cocoon-like forms, sculptural sleeves, layered shapes, and soft movement on the body.",
+  },
+  {
+    number: "07",
+    title: "Design Refinement",
+    text: "Refined garment proportions, technical drawings, range planning, and construction decisions.",
+  },
+  {
+    number: "08",
+    title: "Final Outcome",
+    text: "Presented a six-look capsule collection connecting emotional storytelling, surface, silhouette, and craft.",
+  },
+];
+
+const processArchiveImages = [
+  {
+    src: "/images/website/concept.jpg",
+    label: "Concept and Inspiration",
+  },
+  {
+    src: "/images/website/moodboard.jpg",
+    label: "Mood Board",
+  },
+  {
+    src: "/images/website/textiledevelopment.jpg",
+    label: "Textile Developments",
+  },
+  {
+    src: "/images/website/rangeplan.jpg",
+    label: "Range Plan",
+  },
+];
+
 const lookbookLayouts = [
   "lg:col-span-7",
   "lg:col-span-5 lg:pt-20",
@@ -279,6 +341,85 @@ export default function Home() {
                 className="aspect-[3509/2481] border-gold/30 bg-charcoal shadow-[0_34px_100px_rgba(0,0,0,0.32)]"
               />
             </ImageReveal>
+          </div>
+        </div>
+      </section>
+
+      <section id="process" className="section-pad scroll-mt-28 bg-cream/45">
+        <div className="editorial-container">
+          <Reveal className="grid gap-8 border-b border-gold/24 pb-10 lg:grid-cols-[0.34fr_0.66fr] lg:items-end">
+            <p className="eyebrow">Creative Process</p>
+            <div>
+              <AnimatedHeading>
+                <h2 className="serif text-5xl font-semibold leading-[0.95] text-espresso sm:text-6xl lg:text-7xl">
+                  From concept research to final collection.
+                </h2>
+              </AnimatedHeading>
+              <p className="mt-6 max-w-3xl text-base leading-8 text-muted">
+                The LUMENÉ collection developed through visual research, mood
+                exploration, customer study, fabric and colour investigation,
+                textile experimentation, draping, refinement, and final line-up
+                development.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-12 grid gap-10 lg:grid-cols-[0.62fr_0.38fr] lg:items-start">
+            <Stagger className="grid gap-px overflow-hidden border border-gold/22 bg-gold/22 sm:grid-cols-2">
+              {creativeProcessSteps.map((step) => (
+                <StaggerItem key={step.number}>
+                  <article className="group min-h-full bg-ivory/92 p-6 transition duration-700 hover:bg-cream sm:p-7">
+                    <div className="flex items-start gap-5">
+                      <span className="serif shrink-0 text-5xl font-semibold leading-none text-gold/72 transition duration-700 group-hover:text-accent">
+                        {step.number}
+                      </span>
+                      <div>
+                        <h3 className="serif text-2xl font-semibold leading-tight text-brown">
+                          {step.title}
+                        </h3>
+                        <p className="mt-4 text-sm leading-7 text-muted">
+                          {step.text}
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </StaggerItem>
+              ))}
+            </Stagger>
+
+            <Reveal delay={0.12} className="lg:sticky lg:top-28">
+              <div className="border border-gold/24 bg-ivory/76 p-4 shadow-[0_24px_80px_rgba(58,36,24,0.1)]">
+                <div className="grid grid-cols-2 gap-3">
+                  {processArchiveImages.map((image) => (
+                    <div key={image.label} className="group">
+                      <ImagePlaceholder
+                        src={image.src}
+                        alt={`${image.label} process archive image`}
+                        label={image.label}
+                        fit="contain"
+                        showLabel={false}
+                        showSpotlight={false}
+                        className="aspect-[4/3] bg-[#DCDBDB] shadow-none transition duration-[1200ms] group-hover:scale-[1.015]"
+                      />
+                      <p className="mt-2 text-[0.6rem] font-bold uppercase tracking-[0.16em] text-muted">
+                        {image.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-7 border-t border-gold/22 pt-6">
+                  <p className="serif text-3xl font-semibold leading-tight text-brown">
+                    Archive fragments from research, surface, silhouette, and
+                    range planning.
+                  </p>
+                  <div className="mt-6">
+                    <ButtonLink href="/portfolio" variant="secondary">
+                      View the Final Looks
+                    </ButtonLink>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>

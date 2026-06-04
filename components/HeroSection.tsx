@@ -132,13 +132,11 @@ export function HeroSection() {
             label="Metamorphosis of Mind"
             priority
             fit="contain"
+            showLabel={false}
             showLabelEyebrow={false}
             showSpotlight={false}
             className="hero-image-reveal aspect-[1055/1491] bg-cream/70"
           />
-          <div className="pointer-events-none absolute right-5 top-5 rounded-full border border-gold/35 bg-cream/72 px-4 py-2 text-[0.62rem] font-bold uppercase tracking-[0.22em] text-brown shadow-[0_18px_42px_rgba(27,18,13,0.12)] backdrop-blur-md">
-            Editorial Portfolio
-          </div>
         </motion.div>
       </div>
     </section>

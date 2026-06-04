@@ -1,7 +1,7 @@
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/process", label: "Process" },
+  { href: "/#process", label: "Process" },
   { href: "/#about", label: "About" },
   { href: "/#contact", label: "Contact" },
 ];
@@ -41,7 +41,7 @@ export const projects = [
     description:
       "Visual research translating butterfly wings, chrysalis structures, and emotional metamorphosis into fashion illustration and design direction.",
     image: "/images/moodboard.jpg",
-    href: "/process",
+    href: "/#process",
   },
 ];
 
