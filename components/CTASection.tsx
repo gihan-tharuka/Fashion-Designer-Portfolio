@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/ButtonLink";
+import { Reveal } from "@/components/Motion";
 import Link from "next/link";
 
 type CTASectionProps = {
@@ -21,7 +22,8 @@ export function CTASection({
   return (
     <section className="section-pad luxury-section">
       <div className="editorial-container">
-        <div className="luxury-cta-panel motion-reveal rounded-md border border-gold/26 bg-cream/[0.055] px-6 py-16 text-center shadow-[0_34px_110px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:px-12 sm:py-20 lg:px-20">
+        <Reveal>
+        <div className="luxury-cta-panel rounded-md border border-gold/26 bg-cream/[0.055] px-6 py-16 text-center shadow-[0_34px_110px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:px-12 sm:py-20 lg:px-20">
           <div className="relative z-10">
             <div className="mx-auto mb-8 h-px w-28 bg-gradient-to-r from-transparent via-gold to-transparent" />
             <p className="eyebrow">Creative Opportunities</p>
@@ -45,6 +47,7 @@ export function CTASection({
             <div className="mx-auto mt-10 h-px w-40 bg-gradient-to-r from-transparent via-cream/24 to-transparent" />
           </div>
         </div>
+        </Reveal>
       </div>
     </section>
   );

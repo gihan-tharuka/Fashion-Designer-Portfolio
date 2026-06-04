@@ -2,7 +2,7 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { CTASection } from "@/components/CTASection";
 import { HeroSection } from "@/components/HeroSection";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
-import { SectionHeading } from "@/components/SectionHeading";
+import { AnimatedHeading, ImageReveal, Reveal, Stagger, StaggerItem } from "@/components/Motion";
 import { ValueCard } from "@/components/ValueCard";
 import { values } from "@/lib/data";
 
@@ -13,32 +13,36 @@ export default function Home() {
 
       <section className="section-pad magazine-spread">
         <div className="editorial-container">
-          <div className="motion-reveal mb-14 grid gap-6 border-b border-gold/24 pb-8 lg:grid-cols-[0.28fr_0.72fr] lg:items-end">
+          <Reveal className="mb-14 grid gap-6 border-b border-gold/24 pb-8 lg:grid-cols-[0.28fr_0.72fr] lg:items-end">
             <p className="eyebrow">Brand Statement</p>
-            <h2 className="serif max-w-5xl text-5xl font-semibold leading-[0.96] text-espresso sm:text-6xl lg:text-7xl">
-              A personal language of transformation, memory, and quiet feminine
-              power.
-            </h2>
-          </div>
+            <AnimatedHeading>
+              <h2 className="serif max-w-5xl text-5xl font-semibold leading-[0.96] text-espresso sm:text-6xl lg:text-7xl">
+                A personal language of transformation, memory, and quiet
+                feminine power.
+              </h2>
+            </AnimatedHeading>
+          </Reveal>
 
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.35fr_0.85fr] lg:items-start">
-            <div className="motion-reveal-delayed">
-              <ImagePlaceholder
-                src="/images/website/brand.jpeg"
-                alt="LUMENÉ concept and creative practice visual"
-                label="Branding Statement"
-                fit="contain"
-                showLabel={false}
-                showSpotlight={false}
-                className="aspect-[4/5] bg-cream/70"
-              />
+            <div>
+              <ImageReveal>
+                <ImagePlaceholder
+                  src="/images/website/brand.jpeg"
+                  alt="LUMENÉ concept and creative practice visual"
+                  label="Branding Statement"
+                  fit="contain"
+                  showLabel={false}
+                  showSpotlight={false}
+                  className="aspect-[4/5] bg-cream/70"
+                />
+              </ImageReveal>
               <div className="mt-5 flex items-center justify-between border-t border-gold/24 pt-4 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-muted">
                 <span>LUMENÉ</span>
                 <span>Metamorphosis</span>
               </div>
             </div>
 
-            <div className="motion-reveal space-y-6 border-y border-gold/20 py-7 text-base leading-8 text-muted lg:border-x lg:border-y-0 lg:px-8 lg:py-0">
+            <Reveal className="space-y-6 border-y border-gold/20 py-7 text-base leading-8 text-muted lg:border-x lg:border-y-0 lg:px-8 lg:py-0">
               <p>
                 My creative practice explores fashion as a form of emotional
                 transformation. Through my collection LUMENÉ, I translate the
@@ -68,32 +72,36 @@ export default function Home() {
                 celebrates emotional authenticity, conscious craftsmanship, and
                 quiet feminine power.
               </p>
-            </div>
+            </Reveal>
 
-            <aside className="quote-drift rounded-md border border-gold/28 bg-cream/58 p-7 shadow-[0_24px_70px_rgba(58,36,24,0.1)] backdrop-blur-xl">
-              <p className="eyebrow">Editorial Note</p>
-              <blockquote className="serif mt-6 text-4xl font-semibold leading-[1.02] text-brown">
-                “Fabric becomes a language for inner strength, softness, and
-                release.”
-              </blockquote>
-              <div className="mt-8 h-px w-20 bg-gold" />
-              <p className="mt-6 text-sm leading-7 text-muted">
-                LUMENÉ holds contrast at its centre: protection and liberation,
-                fragility and power, darkness and afterlight.
-              </p>
-            </aside>
+            <Reveal delay={0.12}>
+              <aside className="quote-drift rounded-md border border-gold/28 bg-cream/58 p-7 shadow-[0_24px_70px_rgba(58,36,24,0.1)] backdrop-blur-xl">
+                <p className="eyebrow">Editorial Note</p>
+                <blockquote className="serif mt-6 text-4xl font-semibold leading-[1.02] text-brown">
+                  “Fabric becomes a language for inner strength, softness, and
+                  release.”
+                </blockquote>
+                <div className="mt-8 h-px w-20 bg-gold" />
+                <p className="mt-6 text-sm leading-7 text-muted">
+                  LUMENÉ holds contrast at its centre: protection and
+                  liberation, fragility and power, darkness and afterlight.
+                </p>
+              </aside>
+            </Reveal>
           </div>
         </div>
       </section>
 
       <section className="collection-reveal overflow-hidden bg-[radial-gradient(circle_at_18%_8%,rgba(179,137,75,0.2),transparent_28rem),linear-gradient(135deg,#1b120d,#2b1b12_48%,#130d09)] py-20 text-cream sm:py-24 lg:py-28">
         <div className="editorial-container">
-          <div className="motion-reveal grid gap-10 lg:grid-cols-[0.72fr_0.28fr] lg:items-end">
+          <Reveal className="grid gap-10 lg:grid-cols-[0.72fr_0.28fr] lg:items-end">
             <div>
               <p className="eyebrow">Featured Collection</p>
-              <h2 className="serif mt-5 max-w-5xl text-5xl font-semibold leading-[0.92] text-cream sm:text-7xl lg:text-8xl">
-                LUMENÉ Capsule Collection S/W 2027
-              </h2>
+              <AnimatedHeading>
+                <h2 className="serif mt-5 max-w-5xl text-5xl font-semibold leading-[0.92] text-cream sm:text-7xl lg:text-8xl">
+                  LUMENÉ Capsule Collection S/W 2027
+                </h2>
+              </AnimatedHeading>
               <p className="mt-7 max-w-3xl text-base leading-8 text-cream/72">
                 Contemporary womenswear shaped by emotional healing, butterfly
                 metamorphosis, translucent fabric layers, draped silhouettes,
@@ -101,25 +109,25 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid gap-4 border-l border-gold/28 pl-6 text-xs font-bold uppercase tracking-[0.18em] text-cream/68 max-lg:border-l-0 max-lg:border-t max-lg:pl-0 max-lg:pt-6">
-              <span>6 Looks</span>
-              <span>Draped Silhouettes</span>
-              <span>Batik-Inspired Surfaces</span>
-              <span>Emotional Transformation</span>
-            </div>
-          </div>
+            <Stagger className="grid gap-4 border-l border-gold/28 pl-6 text-xs font-bold uppercase tracking-[0.18em] text-cream/68 max-lg:border-l-0 max-lg:border-t max-lg:pl-0 max-lg:pt-6">
+              <StaggerItem>6 Looks</StaggerItem>
+              <StaggerItem>Draped Silhouettes</StaggerItem>
+              <StaggerItem>Batik-Inspired Surfaces</StaggerItem>
+              <StaggerItem>Emotional Transformation</StaggerItem>
+            </Stagger>
+          </Reveal>
 
           <div className="mt-12 grid gap-8 lg:grid-cols-[0.24fr_0.76fr] lg:items-end">
-            <div className="motion-reveal-delayed max-w-sm">
+            <Reveal delay={0.1} className="max-w-sm">
               <p className="serif text-3xl font-semibold leading-tight text-gold">
                 An editorial entrance into a six-look metamorphosis.
               </p>
               <div className="mt-8">
                 <ButtonLink href="/portfolio">Explore the Looks</ButtonLink>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="collection-image-frame relative lg:-mb-12">
+            <ImageReveal className="collection-image-frame relative lg:-mb-12">
               <div className="absolute -left-5 -top-5 hidden h-28 w-28 border-l border-t border-gold/40 lg:block" />
               <ImagePlaceholder
                 src="/images/website/lineup.jpg"
@@ -129,31 +137,35 @@ export default function Home() {
                 showSpotlight={false}
                 className="aspect-[3509/2481] border-gold/30 bg-charcoal shadow-[0_34px_100px_rgba(0,0,0,0.32)]"
               />
-            </div>
+            </ImageReveal>
           </div>
         </div>
       </section>
 
       <section className="section-pad bg-ivory/62">
         <div className="editorial-container">
-          <div className="motion-reveal grid gap-8 border-b border-gold/24 pb-10 lg:grid-cols-[0.34fr_0.66fr] lg:items-end">
+          <Reveal className="grid gap-8 border-b border-gold/24 pb-10 lg:grid-cols-[0.34fr_0.66fr] lg:items-end">
             <p className="eyebrow">Design Identity</p>
             <div>
-              <h2 className="serif text-5xl font-semibold leading-[0.95] text-espresso sm:text-6xl lg:text-7xl">
-                Soft power, tactile memory, and modern femininity.
-              </h2>
+              <AnimatedHeading>
+                <h2 className="serif text-5xl font-semibold leading-[0.95] text-espresso sm:text-6xl lg:text-7xl">
+                  Soft power, tactile memory, and modern femininity.
+                </h2>
+              </AnimatedHeading>
               <p className="mt-6 max-w-3xl text-base leading-8 text-muted">
                 The portfolio frames fashion as a language of transformation,
                 where fabric surfaces hold memory and silhouette becomes
                 emotional movement.
               </p>
             </div>
-          </div>
-          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          </Reveal>
+          <Stagger className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((value, index) => (
-              <ValueCard key={value.title} {...value} index={index + 1} />
+              <StaggerItem key={value.title}>
+                <ValueCard {...value} index={index + 1} />
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 

@@ -1,12 +1,13 @@
 import Link from "next/link";
+import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
 import { navItems } from "@/lib/data";
 
 export function Footer() {
   return (
     <footer className="border-t border-gold/20 bg-[radial-gradient(circle_at_18%_0%,rgba(179,137,75,0.2),transparent_26rem),linear-gradient(135deg,#1b120d,#26170f_52%,#120c08)] text-cream">
       <div className="editorial-container py-16 sm:py-20">
-        <div className="grid gap-12 border-b border-gold/18 pb-14 lg:grid-cols-[1.25fr_0.7fr_0.9fr_0.8fr]">
-          <div className="motion-reveal">
+        <Stagger className="grid gap-12 border-b border-gold/18 pb-14 lg:grid-cols-[1.25fr_0.7fr_0.9fr_0.8fr]">
+          <StaggerItem>
             <p className="eyebrow">Fashion Portfolio</p>
             <p className="serif mt-4 text-5xl font-semibold leading-none text-cream sm:text-6xl">
               LUMENÉ
@@ -19,9 +20,9 @@ export function Footer() {
               Available for collaborations, internships, styling projects, and
               creative opportunities.
             </p>
-          </div>
+          </StaggerItem>
 
-          <div className="border-t border-gold/16 pt-7 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+          <StaggerItem className="border-t border-gold/16 pt-7 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold">
               Navigate
             </p>
@@ -37,9 +38,9 @@ export function Footer() {
                 </Link>
               ))}
             </div>
-          </div>
+          </StaggerItem>
 
-          <div className="border-t border-gold/16 pt-7 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+          <StaggerItem className="border-t border-gold/16 pt-7 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold">
               Contact
             </p>
@@ -64,9 +65,9 @@ export function Footer() {
               </a>
               <span className="text-cream/58">Colombo / Remote</span>
             </div>
-          </div>
+          </StaggerItem>
 
-          <div className="border-t border-gold/16 pt-7 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+          <StaggerItem className="border-t border-gold/16 pt-7 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold">
               Collection
             </p>
@@ -76,13 +77,13 @@ export function Footer() {
               <span>Draped silhouettes</span>
               <span>Batik-inspired surfaces</span>
             </div>
-          </div>
-        </div>
+          </StaggerItem>
+        </Stagger>
 
-        <div className="flex flex-col gap-3 pt-7 text-xs uppercase tracking-[0.16em] text-cream/48 sm:flex-row sm:items-center sm:justify-between">
+        <Reveal className="flex flex-col gap-3 pt-7 text-xs uppercase tracking-[0.16em] text-cream/48 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2027 LUMENÉ. All rights reserved.</p>
           <p>Designed as a fashion portfolio presentation.</p>
-        </div>
+        </Reveal>
       </div>
     </footer>
   );

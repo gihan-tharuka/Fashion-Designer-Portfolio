@@ -27,7 +27,8 @@ export function ButtonLink({
       download={download}
       className={`focus-ring group inline-flex min-h-11 items-center justify-center rounded-full border px-5 py-2.5 text-xs font-bold uppercase tracking-[0.14em] transition duration-500 hover:-translate-y-0.5 ${styles[variant]}`}
     >
-      {children}
+      <span>{children}</span>
+      <span className="ml-2 transition duration-500 group-hover:translate-x-1">→</span>
     </Link>
   );
 }

@@ -106,7 +106,7 @@ export function Navbar() {
       {isOpen ? (
         <div
           id="mobile-navigation"
-          className="fixed inset-0 z-60 border-t border-gold/18 bg-[radial-gradient(circle_at_20%_10%,rgba(179,137,75,0.2),transparent_20rem),linear-gradient(135deg,#f8f0e3,#f1dfc5)] pt-20 md:hidden"
+          className="mobile-menu-panel fixed inset-0 z-60 border-t border-gold/18 bg-[radial-gradient(circle_at_20%_10%,rgba(179,137,75,0.2),transparent_20rem),linear-gradient(135deg,#f8f0e3,#f1dfc5)] pt-20 md:hidden"
         >
           <div className="editorial-container flex min-h-[calc(100svh-5rem)] flex-col justify-between py-8">
             <div className="grid gap-3">
@@ -118,7 +118,7 @@ export function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`focus-ring serif border-b border-gold/18 py-4 text-5xl font-semibold leading-none transition duration-500 ${
+                    className={`mobile-menu-link focus-ring serif border-b border-gold/18 py-4 text-5xl font-semibold leading-none transition duration-500 ${
                       active ? "text-espresso" : "text-brown/78 hover:text-espresso"
                     }`}
                     style={{ animationDelay: `${index * 70}ms` }}
