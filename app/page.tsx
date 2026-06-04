@@ -30,6 +30,17 @@ const contactDetails = [
   },
 ];
 
+const aboutSkills = [
+  "Fashion Illustration",
+  "Draping",
+  "Textile Surface",
+  "Batik Development",
+  "Concept Research",
+  "Mood Boards",
+  "Technical Drawing",
+  "Portfolio Development",
+];
+
 const lookbookLayouts = [
   "lg:col-span-7",
   "lg:col-span-5 lg:pt-20",
@@ -131,6 +142,95 @@ export default function Home() {
               </aside>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      <section id="about" className="section-pad scroll-mt-28 bg-ivory/72">
+        <div className="editorial-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <ImageReveal>
+            <div className="relative">
+              <ImagePlaceholder
+                src="/images/designer/Imalka-Tharuni.jpeg"
+                alt="Portrait of fashion designer Imalka Tharuni"
+                label="Imalka Tharuni"
+                showLabelEyebrow={false}
+                showSpotlight={false}
+                className="aspect-[4/5] min-h-[32rem] bg-[#DCDBDB] shadow-[0_34px_100px_rgba(58,36,24,0.16)] lg:min-h-[42rem]"
+              />
+              <div className="pointer-events-none absolute -bottom-5 right-5 hidden border border-gold/30 bg-cream/88 px-5 py-4 text-[0.64rem] font-bold uppercase tracking-[0.22em] text-brown shadow-[0_18px_48px_rgba(58,36,24,0.14)] backdrop-blur-md sm:block">
+                Imalka Tharuni
+              </div>
+            </div>
+          </ImageReveal>
+
+          <Reveal className="space-y-8">
+            <div className="max-w-4xl">
+              <div className="mb-8 h-px w-28 bg-gradient-to-r from-gold to-transparent" />
+              <p className="eyebrow">About the Designer</p>
+              <AnimatedHeading>
+                <h2 className="serif mt-5 text-5xl font-semibold leading-[0.95] text-espresso sm:text-6xl lg:text-7xl">
+                  Imalka Tharuni creates womenswear shaped by emotion, craft,
+                  and transformation.
+                </h2>
+              </AnimatedHeading>
+            </div>
+
+            <div className="grid gap-8 border-y border-gold/24 py-8 lg:grid-cols-[0.66fr_0.34fr]">
+              <div className="space-y-5 text-base leading-8 text-muted">
+                <p>
+                  Imalka Tharuni is a developing fashion designer with a strong
+                  interest in emotional storytelling, textile craft, and
+                  contemporary womenswear. Her design practice explores personal
+                  experiences, transformation, healing, and identity through
+                  fabric, silhouette, colour, and surface detail.
+                </p>
+                <p>
+                  Her current collection, LUMENÉ, reflects the journey from
+                  chrysalis to butterfly, using draping, batik-inspired textile
+                  surfaces, layered forms, and soft sculptural silhouettes to
+                  express emotional growth, protection, struggle, and release.
+                </p>
+              </div>
+
+              <aside className="border-l border-gold/24 pl-6 max-lg:border-l-0 max-lg:border-t max-lg:pl-0 max-lg:pt-6">
+                <blockquote className="serif text-3xl font-semibold leading-tight text-brown sm:text-4xl">
+                  “Fashion becomes a personal language of memory, movement, and
+                  transformation.”
+                </blockquote>
+                <p className="mt-6 text-[0.68rem] font-bold uppercase tracking-[0.22em] text-accent">
+                  Imalka Tharuni
+                </p>
+                <p className="mt-2 text-sm leading-7 text-muted">
+                  Fashion Designer / Contemporary Womenswear / Textile Surface
+                  / Draping
+                </p>
+              </aside>
+            </div>
+
+            <div>
+              <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-accent">
+                Craft Focus
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2.5">
+                {aboutSkills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="border border-gold/24 bg-cream/54 px-3.5 py-2 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-brown transition duration-500 hover:-translate-y-0.5 hover:border-gold hover:bg-cream"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-7 max-w-3xl text-sm leading-7 text-muted">
+                <span className="font-bold uppercase tracking-[0.16em] text-brown">
+                  Creative interests:
+                </span>{" "}
+                Contemporary womenswear, assistant designer roles, freelance
+                design, styling collaborations, and graduate showcase
+                opportunities.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
