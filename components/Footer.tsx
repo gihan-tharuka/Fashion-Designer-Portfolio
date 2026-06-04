@@ -3,50 +3,85 @@ import { navItems } from "@/lib/data";
 
 export function Footer() {
   return (
-    <footer className="luxury-section border-t border-gold/20 text-cream">
-      <div className="editorial-container grid gap-10 py-16 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
-        <div>
-          <p className="serif text-4xl font-semibold">LUMENÉ</p>
-          <p className="mt-4 max-w-md text-sm leading-7 text-cream/72">
-            Contemporary womenswear shaped by emotional transformation,
-            tactile textile surfaces, and soft sculptural silhouettes.
-          </p>
-        </div>
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold">
-            Navigate
-          </p>
-          <div className="mt-4 grid gap-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm text-cream/72 transition duration-300 hover:text-gold"
+    <footer className="border-t border-gold/20 bg-[radial-gradient(circle_at_18%_0%,rgba(179,137,75,0.2),transparent_26rem),linear-gradient(135deg,#1b120d,#26170f_52%,#120c08)] text-cream">
+      <div className="editorial-container py-16 sm:py-20">
+        <div className="grid gap-12 border-b border-gold/18 pb-14 lg:grid-cols-[1.25fr_0.7fr_0.9fr_0.8fr]">
+          <div className="motion-reveal">
+            <p className="eyebrow">Fashion Portfolio</p>
+            <p className="serif mt-4 text-5xl font-semibold leading-none text-cream sm:text-6xl">
+              LUMENÉ
+            </p>
+            <p className="mt-6 max-w-md text-sm leading-7 text-cream/72">
+              Contemporary womenswear shaped by emotional transformation,
+              tactile textile surfaces, and soft sculptural silhouettes.
+            </p>
+            <p className="mt-8 max-w-sm border-l border-gold/38 pl-5 text-sm leading-7 text-gold">
+              Available for collaborations, internships, styling projects, and
+              creative opportunities.
+            </p>
+          </div>
+
+          <div className="border-t border-gold/16 pt-7 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold">
+              Navigate
+            </p>
+            <div className="mt-5 grid gap-3">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group inline-flex w-fit text-sm text-cream/72 transition duration-300 hover:text-gold"
+                >
+                  {item.label}
+                  <span className="ml-0 h-px w-0 self-end bg-gold transition-all duration-500 group-hover:ml-3 group-hover:w-8" />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="border-t border-gold/16 pt-7 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold">
+              Contact
+            </p>
+            <div className="mt-5 grid gap-3 text-sm text-cream/75">
+              <a
+                href="mailto:imalkatharuni24@gmail.com"
+                className="transition duration-300 hover:text-gold"
               >
-                {item.label}
-              </Link>
-            ))}
+                imalkatharuni24@gmail.com
+              </a>
+              <a
+                href="tel:+94782870261"
+                className="transition duration-300 hover:text-gold"
+              >
+                078 287 0261
+              </a>
+              <a
+                href="https://www.linkedin.com/in/imalka-tharuni-71b145234/"
+                className="transition duration-300 hover:text-gold"
+              >
+                LinkedIn
+              </a>
+              <span className="text-cream/58">Colombo / Remote</span>
+            </div>
+          </div>
+
+          <div className="border-t border-gold/16 pt-7 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold">
+              Collection
+            </p>
+            <div className="mt-5 grid gap-3 text-sm leading-7 text-cream/72">
+              <span>LUMENÉ S/W 2027</span>
+              <span>6 Looks</span>
+              <span>Draped silhouettes</span>
+              <span>Batik-inspired surfaces</span>
+            </div>
           </div>
         </div>
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold">
-            Contact
-          </p>
-          <div className="mt-4 grid gap-2 text-sm text-cream/75">
-            <a href="mailto:imalkatharuni24@gmail.com" className="transition hover:text-gold">
-              imalkatharuni24@gmail.com
-            </a>
-            <a href="tel:+94782870261" className="transition hover:text-gold">
-              078 287 0261
-            </a>
-            <a
-              href="https://www.linkedin.com/in/imalka-tharuni-71b145234/"
-              className="transition hover:text-gold"
-            >
-              LinkedIn
-            </a>
-            <span>   Colombo/ Remote</span>
-          </div>
+
+        <div className="flex flex-col gap-3 pt-7 text-xs uppercase tracking-[0.16em] text-cream/48 sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2027 LUMENÉ. All rights reserved.</p>
+          <p>Designed as a fashion portfolio presentation.</p>
         </div>
       </div>
     </footer>
