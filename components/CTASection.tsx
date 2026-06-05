@@ -20,7 +20,7 @@ export function CTASection({
   secondaryText,
 }: CTASectionProps) {
   return (
-    <section className="section-pad luxury-section">
+    <section className="full-bleed-section section-pad luxury-section">
       <div className="editorial-container">
         <Reveal>
         <div className="luxury-cta-panel rounded-md border border-gold/26 bg-cream/[0.055] px-6 py-16 text-center shadow-[0_34px_110px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:px-12 sm:py-20 lg:px-20">

@@ -132,10 +132,10 @@ const lookbookImageFrames = [
 
 export default function Home() {
   return (
-    <main>
+    <main className="site-shell">
       <HeroSection />
 
-      <section className="section-pad magazine-spread">
+      <section className="full-bleed-section section-pad magazine-spread">
         <div className="editorial-container">
           <Reveal className="mb-14 grid gap-6 border-b border-gold/24 pb-8 lg:grid-cols-[0.28fr_0.72fr] lg:items-end">
             <p className="eyebrow">Brand Statement</p>
@@ -188,7 +188,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="section-pad scroll-mt-28 bg-ivory/72">
+      <section id="about" className="full-bleed-section section-pad scroll-mt-28 bg-ivory/72">
         <div className="editorial-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <ImageReveal className="lg:sticky lg:top-0">
             <div className="lg:flex lg:min-h-screen lg:items-center lg:py-28">
@@ -291,7 +291,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="collection-reveal overflow-hidden bg-[radial-gradient(circle_at_18%_8%,rgba(179,137,75,0.2),transparent_28rem),linear-gradient(135deg,#1b120d,#2b1b12_48%,#130d09)] py-20 text-cream sm:py-24 lg:py-28">
+      <section className="collection-reveal full-bleed-section overflow-hidden bg-[radial-gradient(circle_at_18%_8%,rgba(179,137,75,0.2),transparent_28rem),linear-gradient(135deg,#1b120d,#2b1b12_48%,#130d09)] py-20 text-cream sm:py-24 lg:py-28">
         <div className="editorial-container">
           <Reveal className="grid gap-10 lg:grid-cols-[0.72fr_0.28fr] lg:items-end">
             <div>
@@ -341,7 +341,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="process" className="section-pad scroll-mt-28 bg-cream/45">
+      <section id="process" className="full-bleed-section section-pad scroll-mt-28 bg-cream/45">
         <div className="editorial-container">
           <Reveal className="grid gap-8 border-b border-gold/24 pb-10 lg:grid-cols-[0.34fr_0.66fr] lg:items-end">
             <p className="eyebrow">Creative Process</p>
@@ -419,7 +419,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-pad overflow-hidden">
+      <section className="full-bleed-section section-pad overflow-hidden">
         <div className="editorial-container">
           <Reveal className="grid gap-8 border-b border-gold/24 pb-10 lg:grid-cols-[0.32fr_0.68fr] lg:items-end">
             <p className="eyebrow">Lookbook</p>
@@ -497,7 +497,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-pad bg-ivory/62">
+      <section className="full-bleed-section section-pad bg-ivory/62">
         <div className="editorial-container">
           <Reveal className="grid gap-8 border-b border-gold/24 pb-10 lg:grid-cols-[0.34fr_0.66fr] lg:items-end">
             <p className="eyebrow">Design Identity</p>
@@ -526,7 +526,7 @@ export default function Home() {
 
       <section
         id="contact"
-        className="section-pad luxury-section scroll-mt-28"
+        className="full-bleed-section section-pad luxury-section scroll-mt-28"
       >
         <div className="editorial-container">
           <Reveal>

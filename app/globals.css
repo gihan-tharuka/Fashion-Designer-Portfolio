@@ -41,6 +41,9 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -50,21 +53,28 @@ body {
     radial-gradient(circle at 85% 12%, rgba(230, 205, 178, 0.28), transparent 32%),
     radial-gradient(circle at 70% 72%, rgba(196, 135, 112, 0.12), transparent 34%),
     linear-gradient(135deg, #fbf4ea 0%, #f4eadb 45%, #fffaf2 100%);
-  background-attachment: fixed;
+  background-attachment: scroll;
   color: #2b140c;
   font-family: var(--font-sans);
   font-size: 16px;
   letter-spacing: 0;
   min-height: 100vh;
+  min-width: 0;
+  overflow-x: clip;
   position: relative;
+  width: 100%;
+  max-width: 100%;
 }
 
 body::before,
 body::after {
   content: "";
   inset: 0;
+  max-width: 100%;
+  min-width: 100%;
   pointer-events: none;
   position: fixed;
+  width: 100vw;
   z-index: 0;
 }
 
@@ -106,6 +116,29 @@ button {
 .editorial-container {
   width: min(100% - 2rem, 1240px);
   margin-inline: auto;
+}
+
+.site-shell,
+.full-bleed-section {
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.site-shell {
+  overflow-x: clip;
+}
+
+.full-bleed-section {
+  background-clip: border-box;
+}
+
+@supports not (overflow: clip) {
+  html,
+  body,
+  .site-shell {
+    overflow-x: hidden;
+  }
 }
 
 .section-pad {
