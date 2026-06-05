@@ -392,7 +392,6 @@ export default function Home() {
                         src={image.src}
                         alt={`${image.label} process archive image`}
                         label={image.label}
-                        fit="contain"
                         showLabel={false}
                         showSpotlight={false}
                         className="aspect-[4/3] bg-[#DCDBDB] shadow-none transition duration-[1200ms] group-hover:scale-[1.015]"

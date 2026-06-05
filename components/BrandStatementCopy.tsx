@@ -18,7 +18,7 @@ export function BrandStatementCopy() {
       {paragraphs.map((paragraph, index) => (
         <motion.p
           key={paragraph}
-          className={`flex min-h-[56svh] scroll-mt-32 items-center py-8 lg:min-h-[72svh] lg:px-8 ${
+          className={`flex min-h-[34svh] scroll-mt-32 items-center py-6 lg:min-h-[72svh] lg:px-8 lg:py-8 ${
             index > 0 ? "border-t border-gold/16" : ""
           }`}
           initial={index === 0 || reduceMotion ? false : { opacity: 0, y: 42 }}
