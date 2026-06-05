@@ -298,7 +298,7 @@ export default function Home() {
               <p className="eyebrow">Featured Collection</p>
               <AnimatedHeading>
                 <h2 className="serif mt-5 max-w-5xl text-5xl font-semibold leading-[0.92] text-cream sm:text-7xl lg:text-8xl">
-                  LUMENÉ Capsule Collection S/W 2027
+                  LUMENÉ Capsule Collection S/S 2027
                 </h2>
               </AnimatedHeading>
               <p className="mt-7 max-w-3xl text-base leading-8 text-cream/72">
@@ -331,7 +331,7 @@ export default function Home() {
               <ImagePlaceholder
                 src="/images/website/lineup.jpg"
                 alt="LUMENÉ six look collection lineup"
-                label="6 Looks / S/W 2027"
+                label="6 Looks / S/S 2027"
                 showLabelEyebrow={false}
                 showSpotlight={false}
                 className="aspect-[3509/2481] border-gold/30 bg-charcoal shadow-[0_34px_100px_rgba(0,0,0,0.32)]"

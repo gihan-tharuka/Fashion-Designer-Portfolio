@@ -72,7 +72,7 @@ export function Footer() {
               Collection
             </p>
             <div className="mt-5 grid gap-3 text-sm leading-7 text-cream/72">
-              <span>LUMENÉ S/W 2027</span>
+              <span>LUMENÉ S/S 2027</span>
               <span>6 Looks</span>
               <span>Draped silhouettes</span>
               <span>Batik-inspired surfaces</span>

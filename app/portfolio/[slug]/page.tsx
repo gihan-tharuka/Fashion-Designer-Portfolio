@@ -91,7 +91,7 @@ export default async function LookPage({ params }: LookPageProps) {
               className="h-[min(80svh,48rem)] bg-[#DCDBDB]"
             />
             <p className="mt-4 text-right text-[0.62rem] font-bold uppercase tracking-[0.22em] text-muted lg:absolute lg:-right-8 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2 lg:rotate-90">
-              LUMENÉ S/W 2027 — Stage {look.number} of Metamorphosis
+              LUMENÉ S/S 2027 — Stage {look.number} of Metamorphosis
             </p>
           </ImageReveal>
         </div>

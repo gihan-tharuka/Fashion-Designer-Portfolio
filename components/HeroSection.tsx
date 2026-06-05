@@ -1,8 +1,8 @@
 "use client";
 
 import { ButtonLink } from "@/components/ButtonLink";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
-import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 
 const heroEase = [0.22, 1, 0.36, 1] as const;
 
@@ -37,38 +37,45 @@ const titleReveal = {
 
 export function HeroSection() {
   const reduceMotion = useReducedMotion();
-  const pointerX = useMotionValue(0);
-  const pointerY = useMotionValue(0);
-  const rotateX = useSpring(useTransform(pointerY, [-0.5, 0.5], [3.5, -3.5]), {
-    stiffness: 80,
-    damping: 24,
-  });
-  const rotateY = useSpring(useTransform(pointerX, [-0.5, 0.5], [-4, 4]), {
-    stiffness: 80,
-    damping: 24,
-  });
-  const floatY = useSpring(useTransform(pointerY, [-0.5, 0.5], [-8, 8]), {
-    stiffness: 60,
-    damping: 28,
-  });
 
   return (
-    <section className="full-bleed-section relative isolate min-h-[90vh] overflow-hidden">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[linear-gradient(180deg,rgba(248,240,227,0.92),transparent)]" />
-      <div className="silk-atmosphere pointer-events-none absolute right-[8%] top-[12%] h-72 w-72 opacity-70" />
-      <div className="editorial-container grid min-h-[90vh] gap-12 py-14 md:grid-cols-[0.82fr_1.18fr] md:items-center lg:gap-16 lg:py-18">
+    <section className="full-bleed-section relative isolate min-h-[100svh] overflow-hidden">
+      <motion.div
+        className="absolute inset-0"
+        initial={reduceMotion ? false : { scale: 1.03 }}
+        animate={reduceMotion ? undefined : { scale: 1 }}
+        transition={{ duration: 1.8, ease: heroEase }}
+      >
+        <Image
+          src="/images/website/hero3.png"
+          alt="LUMENÉ butterfly-inspired fashion illustration showing metamorphosis and draped womenswear."
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[62%_center] md:object-right"
+        />
+      </motion.div>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(248,240,227,0.96)_0%,rgba(248,240,227,0.86)_36%,rgba(248,240,227,0.38)_62%,rgba(248,240,227,0.06)_100%)] md:bg-[linear-gradient(90deg,rgba(248,240,227,0.9)_0%,rgba(248,240,227,0.76)_32%,rgba(248,240,227,0.24)_56%,rgba(248,240,227,0)_82%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-36 bg-[linear-gradient(180deg,rgba(248,240,227,0.84),transparent)]"
+      />
+      <div className="editorial-container flex min-h-[100svh] items-center py-20 sm:py-24 lg:py-28">
         <motion.div
           initial={reduceMotion ? false : "hidden"}
           animate="visible"
           variants={heroContainer}
-          className="relative z-10 md:pb-16"
+          className="relative z-10 max-w-[42rem] py-10 md:w-[45%]"
         >
           <motion.p variants={heroItem} className="eyebrow">
-            LUMENÉ Capsule Collection S/W 2027
+            LUMENÉ CAPSULE COLLECTION S/W 2027
           </motion.p>
           <motion.h1
             variants={titleReveal}
-            className="serif mt-6 text-[clamp(5.4rem,15vw,13.5rem)] font-semibold leading-[0.78] text-espresso"
+            className="serif mt-6 text-[clamp(4.6rem,18vw,12.5rem)] font-semibold leading-[0.78] text-espresso"
           >
             LUMENÉ
           </motion.h1>
@@ -88,7 +95,9 @@ export function HeroSection() {
             translucent layers, and refined contemporary womenswear.
           </motion.p>
           <motion.div variants={heroItem} className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/portfolio">View Portfolio</ButtonLink>
+            <ButtonLink href="/portfolio" variant="cocoa">
+              View Portfolio
+            </ButtonLink>
             <ButtonLink href="/#contact" variant="secondary">
               Contact for Collaboration
             </ButtonLink>
@@ -96,46 +105,6 @@ export function HeroSection() {
           <motion.div
             variants={heroItem}
             className="mt-12 hidden h-px w-40 bg-gradient-to-r from-gold via-cocoa/40 to-transparent md:block"
-          />
-        </motion.div>
-
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 34, scale: 0.985 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.15, delay: 0.28, ease: heroEase }}
-          style={
-            reduceMotion
-              ? undefined
-              : {
-                  rotateX,
-                  rotateY,
-                  y: floatY,
-                  transformPerspective: 1200,
-                }
-          }
-          onMouseMove={(event) => {
-            if (reduceMotion) return;
-            const rect = event.currentTarget.getBoundingClientRect();
-            pointerX.set((event.clientX - rect.left) / rect.width - 0.5);
-            pointerY.set((event.clientY - rect.top) / rect.height - 0.5);
-          }}
-          onMouseLeave={() => {
-            pointerX.set(0);
-            pointerY.set(0);
-          }}
-          className="relative md:pl-8 lg:pl-14"
-        >
-          <div className="absolute -left-6 top-10 hidden h-44 w-px bg-gold/35 md:block" />
-          <ImagePlaceholder
-            src="/images/website/hero.png"
-            alt="Editorial visual for LUMENÉ fashion collection"
-            label="Metamorphosis of Mind"
-            priority
-            fit="contain"
-            showLabel={false}
-            showLabelEyebrow={false}
-            showSpotlight={false}
-            className="hero-image-reveal aspect-[1055/1491] bg-cream/70"
           />
         </motion.div>
       </div>

@@ -11,7 +11,7 @@ export default function PortfolioPage() {
           <SectionHeading
             eyebrow="Portfolio"
             title="LUMENÉ Collection — 6 Looks"
-            text="LUMENÉ Capsule Collection S/W 2027 is a contemporary womenswear collection exploring emotional transformation through draping, batik-inspired textile surfaces, soft sculptural forms, and poetic femininity. Each look represents a stage of metamorphosis, moving from confinement and inner darkness towards growth, softness, confidence, and liberation."
+            text="LUMENÉ Capsule Collection S/S 2027 is a contemporary womenswear collection exploring emotional transformation through draping, batik-inspired textile surfaces, soft sculptural forms, and poetic femininity. Each look represents a stage of metamorphosis, moving from confinement and inner darkness towards growth, softness, confidence, and liberation."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {looks.map((look) => (
