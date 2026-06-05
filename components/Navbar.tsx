@@ -112,6 +112,18 @@ export function Navbar() {
           id="mobile-navigation"
           className="mobile-menu-panel fixed inset-0 z-[250] h-[100svh] overflow-y-auto border-t border-gold/18 bg-[#f8f0e3] pt-20 md:hidden"
         >
+          <button
+            type="button"
+            className="focus-ring fixed right-4 top-4 z-[340] inline-flex h-12 w-12 items-center justify-center rounded-full border border-espresso bg-espresso text-cream shadow-[0_14px_36px_rgba(27,18,13,0.2)] transition duration-300 hover:bg-brown"
+            aria-label="Close navigation menu"
+            onClick={() => setIsOpen(false)}
+          >
+            <span className="relative h-5 w-5" aria-hidden="true">
+              <span className="absolute left-0 top-1/2 h-px w-5 -translate-y-1/2 rotate-45 bg-current" />
+              <span className="absolute left-0 top-1/2 h-px w-5 -translate-y-1/2 -rotate-45 bg-current" />
+            </span>
+          </button>
+
           <div className="editorial-container relative z-[230] flex min-h-[calc(100svh-5rem)] flex-col justify-between py-8">
             <div className="grid gap-3">
               {navItems.map((item, index) => {

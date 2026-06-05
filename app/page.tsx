@@ -148,7 +148,7 @@ export default function Home() {
                   fit="contain"
                   showLabel={false}
                   showSpotlight={false}
-                  className="aspect-[4/5] bg-cream/70"
+                  className="aspect-[754/1019] bg-cream/70"
                 />
               </ImageReveal>
               <div className="mt-5 flex items-center justify-between border-t border-gold/24 pt-4 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-muted">
