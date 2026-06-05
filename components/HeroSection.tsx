@@ -2,6 +2,7 @@
 
 import { ButtonLink } from "@/components/ButtonLink";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import { MetamorphosisRibbon } from "@/components/MetamorphosisRibbon";
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 
 const heroEase = [0.22, 1, 0.36, 1] as const;
@@ -56,7 +57,8 @@ export function HeroSection() {
     <section className="relative isolate min-h-[90vh] overflow-hidden">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[linear-gradient(180deg,rgba(248,240,227,0.92),transparent)]" />
       <div className="silk-atmosphere pointer-events-none absolute right-[8%] top-[12%] h-72 w-72 opacity-70" />
-      <div className="editorial-container grid min-h-[90vh] gap-12 py-14 md:grid-cols-[0.82fr_1.18fr] md:items-center lg:gap-16 lg:py-18">
+      <MetamorphosisRibbon />
+      <div className="editorial-container relative z-10 grid min-h-[90vh] gap-12 py-14 md:grid-cols-[0.82fr_1.18fr] md:items-center lg:gap-16 lg:py-18">
         <motion.div
           initial={reduceMotion ? false : "hidden"}
           animate="visible"
