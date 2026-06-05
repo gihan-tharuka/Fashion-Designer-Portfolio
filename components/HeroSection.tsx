@@ -39,7 +39,7 @@ export function HeroSection() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="full-bleed-section relative isolate min-h-[100svh] overflow-hidden">
+    <section className="full-bleed-section relative isolate h-[100svh] overflow-hidden">
       <motion.div
         className="absolute inset-0"
         initial={reduceMotion ? false : { scale: 1.03 }}
@@ -63,7 +63,7 @@ export function HeroSection() {
         aria-hidden="true"
         className="absolute inset-x-0 top-0 h-36 bg-[linear-gradient(180deg,rgba(248,240,227,0.84),transparent)]"
       />
-      <div className="editorial-container flex min-h-[100svh] items-center py-20 sm:py-24 lg:py-28">
+      <div className="editorial-container flex h-full items-center py-20 sm:py-24 lg:py-28">
         <motion.div
           initial={reduceMotion ? false : "hidden"}
           animate="visible"
