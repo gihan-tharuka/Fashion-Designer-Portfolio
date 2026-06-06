@@ -10,15 +10,8 @@ The project is designed as both a creative portfolio and a professional web expe
 
 ## Live Demo
 
-Live site: _Add deployment URL here_
+Live site: https://www.lumene.online/ 
 
-## Screenshots
-
-Add screenshots after deployment or final visual QA:
-
-| Homepage Hero | Portfolio Look Page | Pricing Archive |
-| --- | --- | --- |
-| _Add screenshot_ | _Add screenshot_ | _Add screenshot_ |
 
 ## Key Features
 
@@ -50,63 +43,6 @@ Add screenshots after deployment or final visual QA:
 - **Mobile-first refinements:** mobile menu uses an opaque full-screen overlay, visible close control, and full-width tap targets.
 - **Accessible navigation:** semantic links, clear CTA labels, alt text for meaningful imagery, and keyboard focus ring styling.
 - **Performance-aware animation:** Framer Motion reveal/stagger effects are subtle and respect reduced-motion preferences where implemented.
-
-## Pages And Sections
-
-### Homepage `/`
-
-- Cinematic LUMENÉ hero
-- Brand Statement
-- About the Designer
-- Featured Collection
-- Creative Process
-- Lookbook preview
-- Design Identity
-- Contact / Creative Opportunities
-
-### Portfolio `/portfolio`
-
-Collection overview for the six LUMENÉ looks, rendered from `lib/looks.ts`.
-
-### Dynamic Look Pages `/portfolio/[slug]`
-
-Each look page includes:
-
-- Look title and subtitle
-- Concept explanation
-- Design development notes
-- Problems and improvements
-- Outcome and reflection
-- Materials table
-- Garment gallery imagery
-
-### Pricing `/pricing`
-
-Garment costing archive generated from `lib/pricing.ts`, including:
-
-- Collection production cost
-- Collection selling price direction
-- Look-by-look garment tables
-- Fabric usage and cost categories
-- Profit margin and final selling price values
-
-### Redirect Routes
-
-The project also includes lightweight redirect routes:
-
-- `/about` redirects to `/#about`
-- `/process` redirects to `/#process`
-- `/contact` redirects to `/#contact`
-- `/portfolio/lumene` redirects to `/portfolio`
-
-## Responsive Design Notes
-
-- The homepage uses full-width section wrappers with centered content containers.
-- `.editorial-container` controls content width only and is not used as a background layer.
-- The hero uses `100svh` so it occupies exactly the visible screen height.
-- Mobile backgrounds, overlays, and menus avoid fixed desktop widths and horizontal overflow.
-- Portfolio grids adapt across mobile, tablet, and desktop breakpoints.
-- Wide tables in the pricing page use horizontal scrolling to preserve readability on smaller screens.
 
 ## Project Structure
 
@@ -203,16 +139,6 @@ No environment variables are required for the current version of this project. I
 - Add optional CMS support for easier portfolio updates.
 - Add more detailed accessibility testing and keyboard navigation QA.
 - Add automated visual regression checks for key responsive breakpoints.
-
-## Author
-
-**Imalka Tharuni**  
-Emerging fashion designer focused on contemporary womenswear, emotional storytelling, textile craft, draping, and surface development.
-
-- Email: `imalkatharuni24@gmail.com`
-- Phone: `078 287 0261`
-- LinkedIn: [linkedin.com/in/imalka-tharuni-71b145234](https://www.linkedin.com/in/imalka-tharuni-71b145234/)
-- Location: Colombo / available remotely
 
 ## License / Portfolio Use
 
