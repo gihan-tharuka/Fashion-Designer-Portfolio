@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -41,10 +42,18 @@ export function Navbar() {
         <nav className="editorial-container relative z-[320] flex min-h-16 items-center justify-between py-3">
           <Link
             href="/"
-            className="focus-ring serif text-3xl font-semibold tracking-normal text-espresso transition duration-500 hover:text-gold"
+            className="focus-ring inline-flex items-center transition duration-500 hover:opacity-80"
             onClick={() => setIsOpen(false)}
+            aria-label="LUMENÉ home"
           >
-            LUMENÉ
+            <Image
+              src="/favicon/favicon.png"
+              alt="LUMENÉ"
+              width={54}
+              height={52}
+              priority
+              className="h-12 w-auto"
+            />
           </Link>
 
           <button
