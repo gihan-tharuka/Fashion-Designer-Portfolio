@@ -200,7 +200,7 @@ export default function Home() {
                   fit="contain"
                   showLabelEyebrow={false}
                   showSpotlight={false}
-                  className="aspect-[4/5] min-h-[32rem] bg-[#DCDBDB] shadow-[0_34px_100px_rgba(58,36,24,0.16)] lg:h-[calc(100svh-14rem)] lg:min-h-0"
+                  className="aspect-[2247/2800] w-full bg-[#DCDBDB] shadow-[0_34px_100px_rgba(58,36,24,0.16)] lg:h-[calc(100svh-14rem)]"
                 />
               </div>
             </div>
