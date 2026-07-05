@@ -89,8 +89,8 @@ npm run start
 
 The seed script preserves current frontend content from the existing project:
 
-- `lib/looks.ts`
-- `lib/pricing.ts`
+- `frontend/lib/looks.ts`
+- `frontend/lib/pricing.ts`
 - homepage/contact/process content mirrored into `src/config/seed-data.ts`
 
 Seeded records include:

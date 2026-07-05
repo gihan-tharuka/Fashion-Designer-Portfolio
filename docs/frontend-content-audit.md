@@ -3,6 +3,8 @@
 Phase: 0 discovery and data inventory  
 Purpose: Prepare the existing Next.js frontend for a future Node.js + Express + PostgreSQL + Prisma backend without losing current portfolio content, images, routes, or costing data.
 
+Note: Since Phase 1.5, the Next.js app lives in `frontend/`. Path references below describe the original source files that now exist under `frontend/` with the same relative structure.
+
 ## 1. Project Summary
 
 The current project is a frontend-only Next.js App Router portfolio for **LUMENÉ**, a six-look contemporary womenswear collection by **Imalka Tharuni**. It presents a luxury/editorial fashion portfolio with a cinematic homepage, collection lookbook, dynamic look detail pages, garment costing/pricing archive, process documentation, contact details, and downloadable portfolio PDF.

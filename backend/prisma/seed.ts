@@ -1,6 +1,6 @@
 import { PriceStatus, PrismaClient, SkillType } from "@prisma/client";
-import { looks } from "../../lib/looks.ts";
-import { lookPricing } from "../../lib/pricing.ts";
+import { looks } from "../../frontend/lib/looks.ts";
+import { lookPricing } from "../../frontend/lib/pricing.ts";
 import {
   brandStatement,
   collectionSeed,
