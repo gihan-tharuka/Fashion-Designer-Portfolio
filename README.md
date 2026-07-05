@@ -49,6 +49,12 @@ cp backend/.env.example backend/.env
 cp frontend/.env.example frontend/.env.local
 ```
 
+Frontend API base URL:
+
+```bash
+NEXT_PUBLIC_API_URL="http://localhost:5001/api"
+```
+
 5. Run Prisma migration and seed:
 
 ```bash
@@ -85,6 +91,20 @@ npm run backend:migrate
 npm run backend:seed
 npm run backend:studio
 ```
+
+## Phase 2 Frontend Integration
+
+The frontend now consumes backend API data for:
+
+- Homepage featured collection, lookbook, process items, and contact/PDF links
+- `/portfolio`
+- `/portfolio/[slug]`
+- `/pricing`
+
+Fallback behavior is intentionally preserved:
+
+- If the backend is unavailable, the frontend falls back to the existing local portfolio data in `frontend/lib/looks.ts`, `frontend/lib/pricing.ts`, and static editorial copy.
+- This keeps the portfolio buildable and viewable even when the Express server is down.
 
 ## Backend Verification Commands
 

@@ -7,6 +7,11 @@ import {
   Stagger,
   StaggerItem,
 } from "@/components/Motion";
+import { getLookBySlug } from "@/lib/backend-api";
+import {
+  mapBackendLookNavItemToLook,
+  mapBackendLookToLook,
+} from "@/lib/backend-mappers";
 import { getAdjacentLooks, getLook, looks } from "@/lib/looks";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -25,7 +30,8 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: LookPageProps) {
   const { slug } = await params;
-  const look = getLook(slug);
+  const backendLook = await getLookBySlug(slug);
+  const look = backendLook ? mapBackendLookToLook(backendLook.look) : getLook(slug);
 
   return {
     title: look ? `Look ${look.number} — ${look.name}` : "Look",
@@ -34,13 +40,21 @@ export async function generateMetadata({ params }: LookPageProps) {
 
 export default async function LookPage({ params }: LookPageProps) {
   const { slug } = await params;
-  const look = getLook(slug);
+  const backendLook = await getLookBySlug(slug);
+  const look = backendLook ? mapBackendLookToLook(backendLook.look) : getLook(slug);
 
   if (!look) {
     notFound();
   }
 
-  const { previous, next } = getAdjacentLooks(look.slug);
+  const { previous, next } = backendLook
+    ? {
+        previous: backendLook.previous
+          ? mapBackendLookNavItemToLook(backendLook.previous)
+          : null,
+        next: backendLook.next ? mapBackendLookNavItemToLook(backendLook.next) : null,
+      }
+    : getAdjacentLooks(look.slug);
   const lookMaterials = look.materials ?? [];
 
   return (

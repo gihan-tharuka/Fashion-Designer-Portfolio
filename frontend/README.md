@@ -33,6 +33,7 @@ Add screenshots after deployment or final visual QA:
 - Responsive mobile navigation with full-screen menu overlay.
 - Contact and collaboration section with email, phone, LinkedIn, portfolio PDF download, and location availability.
 - Reusable component system for buttons, reveal animations, image frames, value cards, look cards, and CTA sections.
+- Backend-aware data loading with graceful local fallback when the Express API is unavailable.
 
 ## Tech Stack
 
@@ -65,10 +66,11 @@ Add screenshots after deployment or final visual QA:
 - Lookbook preview
 - Design Identity
 - Contact / Creative Opportunities
+- Uses backend data where low-risk: featured collection summary, lookbook looks, process items, and contact details/PDF links, with local fallback content preserved
 
 ### Portfolio `/portfolio`
 
-Collection overview for the six LUMENÉ looks, rendered from `lib/looks.ts`.
+Collection overview for the six LUMENÉ looks. The page now fetches `GET /api/looks` first and falls back to `lib/looks.ts` if the backend is offline.
 
 ### Dynamic Look Pages `/portfolio/[slug]`
 
@@ -81,10 +83,11 @@ Each look page includes:
 - Outcome and reflection
 - Materials table
 - Garment gallery imagery
+- Data source: `GET /api/looks/:slug` with local `lib/looks.ts` fallback
 
 ### Pricing `/pricing`
 
-Garment costing archive generated from `lib/pricing.ts`, including:
+Garment costing archive generated from `GET /api/pricing` with fallback to `lib/pricing.ts`, including:
 
 - Collection production cost
 - Collection selling price direction
@@ -186,7 +189,40 @@ npm run start
 
 ## Environment Variables
 
-No environment variables are required for the current version of this project. It is a front-end portfolio website using local data and local assets.
+Create `frontend/.env.local` from `frontend/.env.example`:
+
+```bash
+cp .env.example .env.local
+```
+
+Required:
+
+```bash
+NEXT_PUBLIC_API_URL="http://localhost:5001/api"
+```
+
+Notes:
+
+- The frontend works with backend data when the Express API is available.
+- If the backend is offline, the app falls back to the existing local content in `lib/looks.ts`, `lib/pricing.ts`, and other page-local editorial content.
+- No frontend pages currently depend on client-side browser fetches to render the main portfolio experience.
+
+## Phase 2 API Integration
+
+Connected endpoints:
+
+- `GET /api/collection/lumene` for featured collection summary on the homepage
+- `GET /api/looks` for homepage lookbook and `/portfolio`
+- `GET /api/looks/:slug` for `/portfolio/[slug]`
+- `GET /api/pricing` for `/pricing`
+- `GET /api/process` for homepage process content
+- `GET /api/site-settings` for homepage contact details and portfolio PDF link
+
+Supporting integration files:
+
+- `lib/backend-api.ts`
+- `lib/backend-types.ts`
+- `lib/backend-mappers.ts`
 
 ## What I Learned
 

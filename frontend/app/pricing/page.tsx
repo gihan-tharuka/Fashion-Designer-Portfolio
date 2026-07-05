@@ -1,13 +1,14 @@
 import { CTASection } from "@/components/CTASection";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
+import { getPricing } from "@/lib/backend-api";
+import { mapBackendPricingToLookPricing } from "@/lib/backend-mappers";
 import {
   formatPrice,
-  getCollectionFinalSellingPrice,
-  getCollectionProductionCost,
   getLookFinalSellingPrice,
   getLookProductionCost,
   lookPricing,
+  sumPriceValues,
 } from "@/lib/pricing";
 import { getLook } from "@/lib/looks";
 import Link from "next/link";
@@ -31,8 +32,13 @@ const costRows = [
   ["Final selling price", "finalSellingPrice", "price"],
 ] as const;
 
-export default function PricingPage() {
-  const totalGarments = lookPricing.reduce(
+export default async function PricingPage() {
+  const backendPricing = await getPricing();
+  const pricingArchive = backendPricing
+    ? mapBackendPricingToLookPricing(backendPricing)
+    : lookPricing;
+
+  const totalGarments = pricingArchive.reduce(
     (total, look) => total + look.garments.length,
     0,
   );
@@ -63,10 +69,10 @@ export default function PricingPage() {
             <div className="border-y border-gold/30 py-7">
               <p className="eyebrow">Collection Total</p>
               <p className="serif mt-4 text-4xl font-semibold leading-none text-brown">
-                {formatPrice(getCollectionFinalSellingPrice())}
+                {formatPrice(getCollectionFinalSellingPriceFromArchive(pricingArchive))}
               </p>
               <p className="mt-4 text-sm leading-7 text-muted">
-                {lookPricing.length} looks, {totalGarments} garment pieces.
+                {pricingArchive.length} looks, {totalGarments} garment pieces.
                 Final archive valuation remains subject to material and
                 finishing confirmation.
               </p>
@@ -87,12 +93,12 @@ export default function PricingPage() {
           <Stagger className="mt-12 grid gap-4 md:grid-cols-3">
             <OverviewPanel
               label="Production Cost"
-              value={formatPrice(getCollectionProductionCost())}
+              value={formatPrice(getCollectionProductionCostFromArchive(pricingArchive))}
               text="Combined material, surface, construction, trims, and finishing costs."
             />
             <OverviewPanel
               label="Final Selling Price"
-              value={formatPrice(getCollectionFinalSellingPrice())}
+              value={formatPrice(getCollectionFinalSellingPriceFromArchive(pricingArchive))}
               text="Portfolio selling-price direction after applied design margin."
             />
             <OverviewPanel
@@ -121,7 +127,7 @@ export default function PricingPage() {
           </Reveal>
 
           <div className="grid gap-8">
-            {lookPricing.map((pricingLook) => {
+            {pricingArchive.map((pricingLook) => {
               const look = getLook(pricingLook.lookSlug);
               const productionCost = getLookProductionCost(pricingLook);
               const finalSellingPrice = getLookFinalSellingPrice(pricingLook);
@@ -306,7 +312,7 @@ export default function PricingPage() {
 
           <Reveal>
             <div className="grid gap-4 md:hidden">
-              {lookPricing.map((pricingLook) => (
+              {pricingArchive.map((pricingLook) => (
                 <SummaryCard key={pricingLook.lookSlug} pricingLook={pricingLook} />
               ))}
             </div>
@@ -323,7 +329,7 @@ export default function PricingPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {lookPricing.map((pricingLook) => (
+                  {pricingArchive.map((pricingLook) => (
                     <tr
                       key={pricingLook.lookSlug}
                       className="border-b border-brown/10 last:border-b-0"
@@ -460,4 +466,12 @@ function SummaryHead({ children }: { children: React.ReactNode }) {
 
 function SummaryCell({ children }: { children: React.ReactNode }) {
   return <td className="px-5 py-5 text-sm font-semibold text-muted">{children}</td>;
+}
+
+function getCollectionProductionCostFromArchive(pricingArchive: typeof lookPricing) {
+  return sumPriceValues(pricingArchive.map(getLookProductionCost));
+}
+
+function getCollectionFinalSellingPriceFromArchive(pricingArchive: typeof lookPricing) {
+  return sumPriceValues(pricingArchive.map(getLookFinalSellingPrice));
 }

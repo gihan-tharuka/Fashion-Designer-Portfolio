@@ -2,7 +2,27 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { BrandStatementCopy } from "@/components/BrandStatementCopy";
 import { HeroSection } from "@/components/HeroSection";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
-import { AnimatedHeading, ImageReveal, Reveal, Stagger, StaggerItem } from "@/components/Motion";
+import {
+  AnimatedHeading,
+  ImageReveal,
+  Reveal,
+  Stagger,
+  StaggerItem,
+} from "@/components/Motion";
+import {
+  getCollection,
+  getLooks,
+  getProcessItems,
+  getSiteSettings,
+} from "@/lib/backend-api";
+import {
+  mapBackendCollectionSummary,
+  mapBackendLooksToLooks,
+  mapBackendProcessItemsToArchiveImages,
+  mapBackendProcessItemsToSteps,
+  mapBackendSiteSettingsToContactCtas,
+  mapBackendSiteSettingsToContactDetails,
+} from "@/lib/backend-mappers";
 import { ValueCard } from "@/components/ValueCard";
 import { values } from "@/lib/data";
 import { looks } from "@/lib/looks";
@@ -130,7 +150,47 @@ const lookbookImageFrames = [
   "h-[min(74svh,44rem)]",
 ];
 
-export default function Home() {
+export default async function Home() {
+  const [backendCollection, backendLooks, backendProcessItems, backendSiteSettings] =
+    await Promise.all([
+      getCollection(),
+      getLooks(),
+      getProcessItems(),
+      getSiteSettings(),
+    ]);
+
+  const displayLooks = backendLooks ? mapBackendLooksToLooks(backendLooks) : looks;
+  const displayProcessSteps = backendProcessItems
+    ? mapBackendProcessItemsToSteps(backendProcessItems)
+    : creativeProcessSteps;
+  const displayProcessArchiveImages = backendProcessItems
+    ? mapBackendProcessItemsToArchiveImages(backendProcessItems)
+    : processArchiveImages;
+  const contactCards = backendSiteSettings
+    ? mapBackendSiteSettingsToContactDetails(backendSiteSettings)
+    : contactDetails;
+  const contactCtas = backendSiteSettings
+    ? mapBackendSiteSettingsToContactCtas(backendSiteSettings)
+    : {
+        emailHref: "mailto:imalkatharuni24@gmail.com",
+        linkedinHref: "https://www.linkedin.com/in/imalka-tharuni-71b145234/",
+        portfolioPdfHref: "/docs/portfolio.pdf",
+      };
+  const featuredCollection = backendCollection
+    ? mapBackendCollectionSummary(backendCollection)
+    : {
+        title: "LUMENÉ Capsule Collection S/S 2027",
+        description:
+          "Contemporary womenswear shaped by emotional healing, butterfly metamorphosis, translucent fabric layers, draped silhouettes, and batik-inspired textile surfaces.",
+        imageUrl: "/images/website/lineup.jpg",
+        facts: [
+          "6 Looks",
+          "Draped Silhouettes",
+          "Batik-Inspired Surfaces",
+          "Emotional Transformation",
+        ],
+      };
+
   return (
     <main className="site-shell">
       <HeroSection />
@@ -298,21 +358,18 @@ export default function Home() {
               <p className="eyebrow">Featured Collection</p>
               <AnimatedHeading>
                 <h2 className="serif mt-5 max-w-5xl text-5xl font-semibold leading-[0.92] text-cream sm:text-7xl lg:text-8xl">
-                  LUMENÉ Capsule Collection S/S 2027
+                  {featuredCollection.title}
                 </h2>
               </AnimatedHeading>
               <p className="mt-7 max-w-3xl text-base leading-8 text-cream/72">
-                Contemporary womenswear shaped by emotional healing, butterfly
-                metamorphosis, translucent fabric layers, draped silhouettes,
-                and batik-inspired textile surfaces.
+                {featuredCollection.description}
               </p>
             </div>
 
             <Stagger className="grid gap-4 border-l border-gold/28 pl-6 text-xs font-bold uppercase tracking-[0.18em] text-cream/68 max-lg:border-l-0 max-lg:border-t max-lg:pl-0 max-lg:pt-6">
-              <StaggerItem>6 Looks</StaggerItem>
-              <StaggerItem>Draped Silhouettes</StaggerItem>
-              <StaggerItem>Batik-Inspired Surfaces</StaggerItem>
-              <StaggerItem>Emotional Transformation</StaggerItem>
+              {featuredCollection.facts.map((fact) => (
+                <StaggerItem key={fact}>{fact}</StaggerItem>
+              ))}
             </Stagger>
           </Reveal>
 
@@ -329,7 +386,7 @@ export default function Home() {
             <ImageReveal className="collection-image-frame relative lg:-mb-12">
               <div className="absolute -left-5 -top-5 hidden h-28 w-28 border-l border-t border-gold/40 lg:block" />
               <ImagePlaceholder
-                src="/images/website/lineup.jpg"
+                src={featuredCollection.imageUrl}
                 alt="LUMENÉ six look collection lineup"
                 label="6 Looks / S/S 2027"
                 showLabelEyebrow={false}
@@ -362,7 +419,7 @@ export default function Home() {
 
           <div className="mt-12 grid gap-10 lg:grid-cols-[0.62fr_0.38fr] lg:items-start">
             <Stagger className="grid gap-px overflow-hidden border border-gold/22 bg-gold/22 sm:grid-cols-2">
-              {creativeProcessSteps.map((step) => (
+              {displayProcessSteps.map((step) => (
                 <StaggerItem key={step.number}>
                   <article className="group min-h-full bg-ivory/92 p-6 transition duration-700 hover:bg-cream sm:p-7">
                     <div className="flex items-start gap-5">
@@ -386,7 +443,7 @@ export default function Home() {
             <Reveal delay={0.12} className="lg:sticky lg:top-28">
               <div className="border border-gold/24 bg-ivory/76 p-4 shadow-[0_24px_80px_rgba(58,36,24,0.1)]">
                 <div className="grid grid-cols-2 gap-3">
-                  {processArchiveImages.map((image) => (
+                  {displayProcessArchiveImages.map((image) => (
                     <div key={image.label} className="group">
                       <ImagePlaceholder
                         src={image.src}
@@ -438,7 +495,7 @@ export default function Home() {
           </Reveal>
 
           <div className="mt-14 grid gap-7 lg:grid-cols-12 lg:gap-8">
-            {looks.map((look, index) => (
+            {displayLooks.map((look, index) => (
               <div
                 key={look.slug}
                 className={lookbookLayouts[index] ?? "lg:col-span-6"}
@@ -546,17 +603,17 @@ export default function Home() {
                   </p>
 
                   <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-                    <ButtonLink href="mailto:imalkatharuni24@gmail.com">
+                    <ButtonLink href={contactCtas.emailHref}>
                       Email Me
                     </ButtonLink>
                     <ButtonLink
-                      href="https://www.linkedin.com/in/imalka-tharuni-71b145234/"
+                      href={contactCtas.linkedinHref}
                       variant="light"
                     >
                       View LinkedIn
                     </ButtonLink>
                     <ButtonLink
-                      href="/docs/portfolio.pdf"
+                      href={contactCtas.portfolioPdfHref}
                       variant="light"
                       download="Imalka-Tharuni-Portfolio.pdf"
                     >
@@ -566,7 +623,7 @@ export default function Home() {
                 </div>
 
                 <Stagger className="grid gap-4">
-                  {contactDetails.map((detail) => (
+                  {contactCards.map((detail) => (
                     <StaggerItem key={detail.label}>
                       <div className="group border border-gold/18 bg-cream/[0.06] p-5 transition duration-500 hover:-translate-y-1 hover:border-gold/48 hover:bg-cream/[0.09]">
                         <p className="text-[0.64rem] font-bold uppercase tracking-[0.2em] text-gold">
