@@ -224,6 +224,34 @@ Supporting integration files:
 - `lib/backend-types.ts`
 - `lib/backend-mappers.ts`
 
+## Phase 3 Admin Foundation
+
+The frontend now includes a basic admin area for Phase 3:
+
+- `/admin/login`
+- `/admin/dashboard`
+
+Current behavior:
+
+- Admin login calls `POST /api/auth/login`
+- JWT is stored in `localStorage` for this phase
+- Dashboard calls `GET /api/auth/me`, `GET /api/admin/dashboard`, and `GET /api/admin/enquiries`
+- Missing or invalid auth redirects back to `/admin/login`
+
+Supporting files:
+
+- `app/admin/login/page.tsx`
+- `app/admin/dashboard/page.tsx`
+- `app/admin/layout.tsx`
+- `lib/admin-auth.ts`
+- `lib/backend-api.ts`
+
+Admin setup note:
+
+- The backend must be running for the admin area to work
+- Use the seeded credentials from `backend/.env`
+- A future phase can move token storage to httpOnly cookies
+
 ## What I Learned
 
 - How to structure a fashion portfolio as a professional web experience rather than a static image gallery.

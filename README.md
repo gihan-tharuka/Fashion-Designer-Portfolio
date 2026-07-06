@@ -106,6 +106,36 @@ Fallback behavior is intentionally preserved:
 - If the backend is unavailable, the frontend falls back to the existing local portfolio data in `frontend/lib/looks.ts`, `frontend/lib/pricing.ts`, and static editorial copy.
 - This keeps the portfolio buildable and viewable even when the Express server is down.
 
+## Phase 3 Admin Auth And Dashboard
+
+The repo now includes a secure admin foundation for future CMS work.
+
+Backend additions:
+
+- `POST /api/auth/login`
+- `GET /api/auth/me`
+- `GET /api/admin/dashboard`
+- `GET /api/admin/enquiries`
+- seeded `ADMIN` user with bcrypt-hashed password
+- JWT auth middleware for protected admin routes
+
+Frontend additions:
+
+- `frontend/app/admin/login/page.tsx`
+- `frontend/app/admin/dashboard/page.tsx`
+- `frontend/lib/admin-auth.ts`
+
+Admin environment variables now required in `backend/.env`:
+
+```bash
+ADMIN_EMAIL="admin@lumene.local"
+ADMIN_PASSWORD="ChangeMe123!"
+JWT_SECRET="super-secret-change-me"
+JWT_EXPIRES_IN="7d"
+```
+
+For this phase, the admin JWT is stored in `localStorage`. That is acceptable for the current portfolio scope and should be upgraded later if the project moves toward a production CMS with stricter session handling.
+
 ## Backend Verification Commands
 
 With Docker Postgres running and `backend/.env` configured:
@@ -133,6 +163,10 @@ curl -s http://localhost:5001/api/site-settings
 curl -s -X POST http://localhost:5001/api/enquiries \
   -H "Content-Type: application/json" \
   -d '{"name":"Sample User","email":"sample@example.com","message":"I would like to request a portfolio viewing.","interestType":"PORTFOLIO_VIEWING"}'
+
+curl -s -X POST http://localhost:5001/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"admin@lumene.local","password":"ChangeMe123!"}'
 ```
 
 ## Troubleshooting

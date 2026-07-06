@@ -1,4 +1,6 @@
 import { Router } from "express";
+import { adminRouter } from "./admin.routes.js";
+import { authRouter } from "./auth.routes.js";
 import { collectionRouter } from "./collection.routes.js";
 import { enquiryRouter } from "./enquiry.routes.js";
 import { healthRouter } from "./health.routes.js";
@@ -10,6 +12,8 @@ import { siteSettingsRouter } from "./site-settings.routes.js";
 export const apiRouter = Router();
 
 apiRouter.use(healthRouter);
+apiRouter.use(authRouter);
+apiRouter.use(adminRouter);
 apiRouter.use(collectionRouter);
 apiRouter.use(lookRouter);
 apiRouter.use(pricingRouter);

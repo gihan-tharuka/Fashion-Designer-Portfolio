@@ -1,6 +1,9 @@
-import { createConnection } from "node:net";
 import type {
+  AdminLoginPayload,
+  BackendAdminDashboard,
+  BackendAdminUser,
   BackendApiResponse,
+  BackendAuthLoginResponse,
   BackendCollectionResponse,
   BackendEnquiry,
   BackendLook,
@@ -13,13 +16,7 @@ import type {
 
 const DEFAULT_API_URL = "http://localhost:5001/api";
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || DEFAULT_API_URL;
-let reachabilityCache:
-  | {
-      checkedAt: number;
-      reachable: boolean;
-      url: string;
-    }
-  | null = null;
+export const ADMIN_TOKEN_STORAGE_KEY = "lumene-admin-token";
 
 function logApiWarning(context: string, error: unknown) {
   if (process.env.NODE_ENV !== "development") {
@@ -42,46 +39,7 @@ async function parseApiResponse<T>(response: Response): Promise<T> {
 }
 
 async function canReachApiServer() {
-  if (typeof window !== "undefined") {
-    return true;
-  }
-
-  const now = Date.now();
-  if (
-    reachabilityCache &&
-    reachabilityCache.url === API_BASE_URL &&
-    now - reachabilityCache.checkedAt < 10_000
-  ) {
-    return reachabilityCache.reachable;
-  }
-
-  const url = new URL(API_BASE_URL);
-  const port = Number(url.port || (url.protocol === "https:" ? 443 : 80));
-
-  const reachable = await new Promise<boolean>((resolve) => {
-    const socket = createConnection({
-      host: url.hostname,
-      port,
-    });
-
-    const finish = (value: boolean) => {
-      socket.destroy();
-      resolve(value);
-    };
-
-    socket.setTimeout(250);
-    socket.on("connect", () => finish(true));
-    socket.on("timeout", () => finish(false));
-    socket.on("error", () => finish(false));
-  });
-
-  reachabilityCache = {
-    checkedAt: now,
-    reachable,
-    url: API_BASE_URL,
-  };
-
-  return reachable;
+  return true;
 }
 
 type ApiRequestInit = RequestInit & {
@@ -127,6 +85,16 @@ async function apiRequest<T>(
   }
 }
 
+function getAuthHeaders(token?: string) {
+  const headers: Record<string, string> = {};
+
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
+  }
+
+  return headers;
+}
+
 export function getCollection() {
   return apiRequest<BackendCollectionResponse>("/collection/lumene");
 }
@@ -163,4 +131,39 @@ export async function createEnquiry(payload: EnquiryPayload) {
     data,
     message: data ? null : "Unable to send enquiry right now.",
   };
+}
+
+export async function loginAdmin(payload: AdminLoginPayload) {
+  const data = await apiRequest<BackendAuthLoginResponse>("/auth/login", {
+    method: "POST",
+    body: JSON.stringify(payload),
+    cache: "no-store",
+  });
+
+  return {
+    success: Boolean(data),
+    data,
+    message: data ? null : "Invalid email or password.",
+  };
+}
+
+export function getCurrentAdmin(token: string) {
+  return apiRequest<BackendAdminUser>("/auth/me", {
+    headers: getAuthHeaders(token),
+    cache: "no-store",
+  });
+}
+
+export function getAdminDashboard(token: string) {
+  return apiRequest<BackendAdminDashboard>("/admin/dashboard", {
+    headers: getAuthHeaders(token),
+    cache: "no-store",
+  });
+}
+
+export function getAdminEnquiries(token: string) {
+  return apiRequest<BackendEnquiry[]>("/admin/enquiries", {
+    headers: getAuthHeaders(token),
+    cache: "no-store",
+  });
 }

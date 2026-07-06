@@ -234,3 +234,40 @@ export type BackendEnquiry = {
   createdAt: string;
   updatedAt: string;
 };
+
+export type AdminLoginPayload = {
+  email: string;
+  password: string;
+};
+
+export type BackendAdminUser = {
+  id: string;
+  name: string;
+  email: string;
+  role: "ADMIN";
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type BackendAuthLoginResponse = {
+  token: string;
+  user: BackendAdminUser;
+};
+
+export type BackendAdminDashboard = {
+  totalLooks: number;
+  totalGarments: number;
+  totalEnquiries: number;
+  newEnquiries: number;
+  processItems: number;
+  confirmedCostings: number;
+  priceOnRequestCostings: number;
+  latestEnquiries: BackendEnquiry[];
+  latestUpdatedLooks: Array<{
+    id: string;
+    slug: string;
+    number: string;
+    name: string;
+    updatedAt: string;
+  }>;
+};

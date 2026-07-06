@@ -1,6 +1,8 @@
+import bcrypt from "bcryptjs";
 import { PriceStatus, PrismaClient, SkillType } from "@prisma/client";
 import { looks } from "../../frontend/lib/looks.ts";
 import { lookPricing } from "../../frontend/lib/pricing.ts";
+import { env } from "../src/config/env.js";
 import {
   brandStatement,
   collectionSeed,
@@ -52,6 +54,7 @@ function toMarginDecimal(value: string) {
 
 async function main() {
   await prisma.enquiry.deleteMany();
+  await prisma.user.deleteMany();
   await prisma.garmentCosting.deleteMany();
   await prisma.garment.deleteMany();
   await prisma.lookImage.deleteMany();
@@ -235,8 +238,19 @@ async function main() {
     },
   });
 
+  const passwordHash = await bcrypt.hash(env.ADMIN_PASSWORD, 10);
+
+  const adminUser = await prisma.user.create({
+    data: {
+      name: "LUMENÉ Admin",
+      email: env.ADMIN_EMAIL,
+      passwordHash,
+      role: "ADMIN",
+    },
+  });
+
   console.log(
-    `Seeded ${collection.name} with ${looks.length} looks and designer profile ${designerProfile.name}.`,
+    `Seeded ${collection.name} with ${looks.length} looks, designer profile ${designerProfile.name}, and admin user ${adminUser.email}.`,
   );
 }
 
