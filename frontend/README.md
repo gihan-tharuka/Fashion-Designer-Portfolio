@@ -252,6 +252,31 @@ Admin setup note:
 - Use the seeded credentials from `backend/.env`
 - A future phase can move token storage to httpOnly cookies
 
+## Phase 4 CMS Editing
+
+The admin area now supports the first content-management phase:
+
+- `/admin/looks`
+- `/admin/looks/new`
+- `/admin/looks/[id]`
+- `/admin/enquiries`
+
+Current Phase 4 capabilities:
+
+- list looks with featured state, slug, order, and updated date
+- create a new look
+- edit look copy, tags, materials, and images
+- delete a look only when it has no garments
+- update enquiry statuses between `NEW`, `READ`, and `ARCHIVED`
+
+Deliberately not included yet:
+
+- pricing CRUD
+- process CRUD
+- site settings CRUD
+- image uploads
+- public UI redesign
+
 ## What I Learned
 
 - How to structure a fashion portfolio as a professional web experience rather than a static image gallery.

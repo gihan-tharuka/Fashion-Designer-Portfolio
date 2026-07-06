@@ -136,6 +136,40 @@ JWT_EXPIRES_IN="7d"
 
 For this phase, the admin JWT is stored in `localStorage`. That is acceptable for the current portfolio scope and should be upgraded later if the project moves toward a production CMS with stricter session handling.
 
+## Phase 4 Admin CMS CRUD
+
+Phase 4 adds the first editable CMS layer while keeping the public portfolio design intact.
+
+Backend additions:
+
+- `GET /api/admin/looks`
+- `GET /api/admin/looks/:id`
+- `POST /api/admin/looks`
+- `PATCH /api/admin/looks/:id`
+- `DELETE /api/admin/looks/:id`
+- `PATCH /api/admin/enquiries/:id`
+
+Frontend additions:
+
+- `frontend/app/admin/looks/page.tsx`
+- `frontend/app/admin/looks/new/page.tsx`
+- `frontend/app/admin/looks/[id]/page.tsx`
+- `frontend/app/admin/enquiries/page.tsx`
+- shared admin shell and look form components
+
+Current CMS scope:
+
+- look basic fields
+- look images
+- look tags
+- look materials
+- enquiry status management
+
+Safety note:
+
+- look deletion is intentionally blocked when garments are attached
+- pricing, process, site settings, uploads, and public redesign stay out of scope in this phase
+
 ## Backend Verification Commands
 
 With Docker Postgres running and `backend/.env` configured:

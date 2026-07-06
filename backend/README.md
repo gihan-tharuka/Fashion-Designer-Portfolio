@@ -149,6 +149,12 @@ All routes are under `/api`.
 | `GET` | `/api/auth/me` | Current authenticated admin |
 | `GET` | `/api/admin/dashboard` | Protected admin dashboard stats |
 | `GET` | `/api/admin/enquiries` | Protected read-only enquiry list |
+| `PATCH` | `/api/admin/enquiries/:id` | Protected enquiry status update |
+| `GET` | `/api/admin/looks` | Protected look list with collection, images, tags, materials, and garment counts |
+| `GET` | `/api/admin/looks/:id` | Protected single look detail with nested content |
+| `POST` | `/api/admin/looks` | Protected look creation |
+| `PATCH` | `/api/admin/looks/:id` | Protected look update including nested images, tags, and materials |
+| `DELETE` | `/api/admin/looks/:id` | Protected look delete when no garments are attached |
 
 ## Response Format
 
@@ -200,6 +206,71 @@ curl -s http://localhost:5001/api/admin/enquiries \
   -H "Authorization: Bearer <token>"
 ```
 
+## Phase 4 Admin CRUD Notes
+
+This phase adds admin CMS editing for:
+
+- look basic fields
+- look images
+- look tags
+- look materials
+- enquiry status updates
+
+This phase intentionally does not add:
+
+- pricing CRUD
+- process CRUD
+- site settings CRUD
+- image uploads or Cloudinary
+
+Delete behavior is conservative:
+
+- looks are only deletable when they have no related garments
+- if garments exist, the API returns `409 Conflict`
+
+Nested look content is handled inside the main create and update payloads. During updates, `images`, `tags`, and `materials` are replaced transactionally when those arrays are provided.
+
+## Example Look Create Body
+
+```json
+{
+  "number": "07",
+  "slug": "look-07",
+  "name": "New Look",
+  "subtitle": "Short editorial line",
+  "description": "Core public description",
+  "concept": "Optional concept text",
+  "designDevelopment": "Optional development notes",
+  "problemsAndImprovements": "Optional reflections",
+  "outcomeAndReflection": "Optional outcome text",
+  "displayOrder": 7,
+  "isFeatured": false,
+  "tags": [
+    { "label": "Draping", "displayOrder": 1 }
+  ],
+  "materials": [
+    { "label": "Fabric", "value": "Silk chiffon", "displayOrder": 1 }
+  ],
+  "images": [
+    {
+      "type": "HERO",
+      "url": "/images/website/look7.jpg",
+      "alt": "Look 07 hero image",
+      "caption": "Hero image",
+      "displayOrder": 1
+    }
+  ]
+}
+```
+
+## Example Enquiry Status Update Body
+
+```json
+{
+  "status": "READ"
+}
+```
+
 ## Modeling Notes
 
 - One `Collection` has many `Look` records
@@ -214,14 +285,17 @@ curl -s http://localhost:5001/api/admin/enquiries \
 Current backend intentionally does not include:
 
 - full admin CRUD
+- pricing CRUD
+- process CRUD
+- site settings CRUD
 - checkout or ecommerce
 - media uploads
 - frontend refactors
 - role management beyond `ADMIN`
 
-Good next steps for Phase 4:
+Good next steps for Phase 5:
 
-- add admin CRUD for looks, pricing, process items, and site settings
+- add admin CRUD for pricing, process items, and site settings
 - move admin auth to httpOnly cookie sessions if desired
 - add enquiry status updates and notes
 - add media uploads and asset management

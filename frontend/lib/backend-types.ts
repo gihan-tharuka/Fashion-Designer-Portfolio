@@ -114,6 +114,8 @@ export type BackendLookDetail = BackendLook & {
   materials: BackendLookMaterial[];
   garments: BackendGarment[];
   collection: BackendCollection;
+  createdAt?: string;
+  updatedAt?: string;
 };
 
 export type BackendPricingLook = {
@@ -269,5 +271,50 @@ export type BackendAdminDashboard = {
     number: string;
     name: string;
     updatedAt: string;
+  }>;
+};
+
+export type BackendAdminLookSummary = BackendLook & {
+  collection: Pick<BackendCollection, "id" | "slug" | "name" | "season">;
+  materials: BackendLookMaterial[];
+  _count: {
+    garments: number;
+  };
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type BackendAdminLookDetail = BackendLookDetail & {
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type AdminLookPayload = {
+  number: string;
+  slug: string;
+  name: string;
+  subtitle?: string | null;
+  description: string;
+  concept?: string | null;
+  designDevelopment?: string | null;
+  problemsAndImprovements?: string | null;
+  outcomeAndReflection?: string | null;
+  displayOrder: number;
+  isFeatured: boolean;
+  images: Array<{
+    type: BackendLookImageType;
+    url: string;
+    alt: string;
+    caption?: string | null;
+    displayOrder: number;
+  }>;
+  tags: Array<{
+    label: string;
+    displayOrder: number;
+  }>;
+  materials: Array<{
+    label: string;
+    value: string;
+    displayOrder: number;
   }>;
 };

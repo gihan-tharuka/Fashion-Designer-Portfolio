@@ -1,8 +1,11 @@
 import type {
   AdminLoginPayload,
   BackendAdminDashboard,
+  BackendAdminLookDetail,
+  BackendAdminLookSummary,
   BackendAdminUser,
   BackendApiResponse,
+  AdminLookPayload,
   BackendAuthLoginResponse,
   BackendCollectionResponse,
   BackendEnquiry,
@@ -164,6 +167,66 @@ export function getAdminDashboard(token: string) {
 export function getAdminEnquiries(token: string) {
   return apiRequest<BackendEnquiry[]>("/admin/enquiries", {
     headers: getAuthHeaders(token),
+    cache: "no-store",
+  });
+}
+
+export function getAdminLooks(token: string) {
+  return apiRequest<BackendAdminLookSummary[]>("/admin/looks", {
+    headers: getAuthHeaders(token),
+    cache: "no-store",
+  });
+}
+
+export function getAdminLook(token: string, id: string) {
+  return apiRequest<BackendAdminLookDetail>(`/admin/looks/${id}`, {
+    headers: getAuthHeaders(token),
+    cache: "no-store",
+  });
+}
+
+export function createAdminLook(token: string, payload: AdminLookPayload) {
+  return apiRequest<BackendAdminLookDetail>("/admin/looks", {
+    method: "POST",
+    headers: getAuthHeaders(token),
+    body: JSON.stringify(payload),
+    cache: "no-store",
+  });
+}
+
+export function updateAdminLook(
+  token: string,
+  id: string,
+  payload: Partial<AdminLookPayload>,
+) {
+  return apiRequest<BackendAdminLookDetail>(`/admin/looks/${id}`, {
+    method: "PATCH",
+    headers: getAuthHeaders(token),
+    body: JSON.stringify(payload),
+    cache: "no-store",
+  });
+}
+
+export function deleteAdminLook(token: string, id: string) {
+  return apiRequest<{ id: string; name: string; deleted: boolean }>(
+    `/admin/looks/${id}`,
+    {
+      method: "DELETE",
+      headers: getAuthHeaders(token),
+      cache: "no-store",
+    },
+  );
+}
+
+export function updateAdminEnquiryStatus(
+  token: string,
+  id: string,
+  status: "NEW" | "READ" | "ARCHIVED",
+) {
+  return apiRequest<BackendEnquiry>(`/admin/enquiries/${id}`, {
+    method: "PATCH",
+    headers: getAuthHeaders(token),
+    body: JSON.stringify({ status }),
     cache: "no-store",
   });
 }

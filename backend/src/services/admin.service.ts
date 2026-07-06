@@ -1,4 +1,5 @@
-import { PriceStatus } from "@prisma/client";
+import { EnquiryStatus, PriceStatus } from "@prisma/client";
+import { HttpError } from "../lib/errors.js";
 import { prisma } from "../lib/prisma.js";
 
 export async function getAdminDashboard() {
@@ -65,5 +66,24 @@ export async function getAdminDashboard() {
 export async function getAdminEnquiries() {
   return prisma.enquiry.findMany({
     orderBy: { createdAt: "desc" },
+  });
+}
+
+export async function updateAdminEnquiryStatus(
+  id: string,
+  status: EnquiryStatus,
+) {
+  const enquiry = await prisma.enquiry.findUnique({
+    where: { id },
+    select: { id: true },
+  });
+
+  if (!enquiry) {
+    throw new HttpError(404, "Enquiry not found");
+  }
+
+  return prisma.enquiry.update({
+    where: { id },
+    data: { status },
   });
 }
